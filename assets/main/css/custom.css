@@ -1,0 +1,18 @@
+.taglist {
+	list-style: none;
+	padding-left: 0;
+	margin-left: 0;
+	display: inline-block;
+}
+.taglist li {
+	display: inline-block;
+	padding-left: 0.125em;
+}
+.taglist li:first-child {
+	padding-left: 0;
+}
+
+
+.taglist li:last-child .sep {
+	display: none;
+}

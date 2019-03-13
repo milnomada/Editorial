@@ -1,0 +1,69 @@
+<div id="sidebar">
+	<div class="inner">
+
+		{{!-- Nav - partials/navigation.hbs --}}
+		{{#if @site.navigation}}
+			{{navigation}}
+		{{/if}}
+
+		{{!-- Tags or Sections --}}
+		<section>
+			<header class="major">
+				<h2>Sections</h2>
+			</header>
+			<div class="mini-posts">
+				{{#get "tags" limit="all" include="count.posts" order="count.posts desc"}}
+				{{#foreach tags}}
+					<a href='/tag/{{ slug }}'>
+					<h3>{{ name }} <small>({{ count.posts }})</small></h3>
+					</a>
+				{{/foreach}}
+				{{/get}}
+			</div>
+		</section>
+
+		{{!-- Do not show recent posts in home page. Which already shows recent posts --}}
+		{{#is "home"}}
+			{{!-- nothing --}}
+		{{else}}
+			{{!-- Show recent posts --}}
+			<section>
+				<header class="major">
+					<h2>Recent Posts</h2>
+				</header>
+				<div class="mini-posts">
+					{{!-- We're just grabbing the 3 latest posts here but you can change
+					this to filter for a specific tag or order depending on what you want.
+					More info: https://docs.ghost.org/api/handlebars-themes/helpers/get/ --}}
+					{{#get "posts" limit="3" as |mini_post|}}
+						{{#foreach mini_post}}
+						<article>
+							<h3><a href="{{url}}">{{title}}</a></h3>
+							<p>{{excerpt words="15"}}</p>
+						</article>
+						{{/foreach}}
+					{{/get}}
+				</div>
+			</section>
+		{{/is}}
+
+		{{!-- Contact --}}
+		{{#get "posts" slug="contact" as |contact|}}
+			{{#if contact}}{{#foreach contact}}
+				<section>
+					<header class="major">
+						<h2>{{title}}</h2>
+					</header>
+					{{content}}
+				</section>
+			{{/foreach}}{{/if}}
+		{{/get}}
+
+		{{!-- Footer --}}
+		<footer id="footer">
+			<p class="copyright">&copy; {{@site.title}} - No rights reserved<br>
+			</p>
+		</footer>
+
+	</div>
+</div>
