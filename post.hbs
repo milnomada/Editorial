@@ -6,6 +6,12 @@ into the {body} of the default.hbs template --}}
 {{!-- Everything inside the #post tags pulls data from the post --}}
 <section>
 
+	{{!-- Search results --}}
+    <header class="content ghost-search-header">
+    	<h3 class="logo">Search results</h3> 
+    </header>
+    <div id="ghost-search-results" class="content"></div>
+
 	<header class="main content">
 		<span class="date">{{date format="MMMM D, YYYY"}}</span>
 		<h1>{{title}}</h1>

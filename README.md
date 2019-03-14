@@ -1,6 +1,19 @@
 # Editorial
 
-This is Editorial, a news-oriented design built around a dynamic 'locking' sidebar (try the toggle to see it in action!) and purpose built for content-centric sites. Originally created by [@ajlkn](https://twitter.com/ajlkn) for [HTML5 UP](https://html5up.net) and later ported to [Ghost](https://ghost.org)
+This is Editorial, a modified version to improve the functionality provided.
+##Features added:
+
+### Bookmark  
+The library bookmark.js allows to keep articles as bookmarked links within the site. It's a link saving feature, using cookies to store bookmarked articles.
+A new section in the navigation sidebar appears with the links to the saved articles.
+
+### Search
+Blog search feature on top of [ghost-search](https://github.com/HauntedThemes/ghost-search), provides a fast search functionality even for an extense blog.  
+
+Results are presented in the current page, home, or post, at the top of the content, as a section.
+Search results dissapear as the search inputs gets empty.
+
+news-oriented design built around a dynamic 'locking' sidebar (try the toggle to see it in action!) and purpose built for content-centric sites. Originally created by [@ajlkn](https://twitter.com/ajlkn) for [HTML5 UP](https://html5up.net) and later ported to [Ghost](https://ghost.org)
 
 **Demo: https://editorial.ghost.io**
 

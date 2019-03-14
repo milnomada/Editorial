@@ -7,4 +7,10 @@
         <li class="nav-{{slug}} {{#if current}}active{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
         {{/foreach}}
     </ul>
+    {{!-- Search bar --}}
+		<header class="search">
+			<h2>Search</h2>
+			<span>for any article in the site</span>
+		</header>
+		<div class="search-bar"><input id="ghost-search-field" /><i class="icon fa-close"></i></div>
 </nav>
