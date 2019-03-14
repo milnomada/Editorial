@@ -1,22 +1,16 @@
 /*
-		<section>
-			<header class="major">
-				<h2>Bookmarks</h2>
-			</header>
-			<div class="mini-posts">
-					<a href="/tag/history-exopolitics-18">
-					<h3>History &amp; Exopolitics <small>(1)</small></h3>
-					</a>
-					<a href="/tag/discover">
-					<h3>Discover <small>(1)</small></h3>
-					</a>
-					<a href="/tag/alternative-news">
-					<h3>Alternative News <small>(1)</small></h3>
-					</a>
-			</div>
-		</section>
+	bookmark.js
+	A crispy bookmark section for the [Ghost Editorial theme]
+	Adds a font-awesome bookmart at the top right of the post area.
+
+	Needs custom.css file to be in the project theme/assets too. 
+
+	Author: <karlos@milnomada.io>
+	Version: 0.1
  */
 (function($) {
+
+	var hbs_handler='a[data-elem="book-mark"]';
 
 	var bookmarkSection={
 		e:$('<section class="bookmark-box"><header class="major"><h2>Bookmarks</h2></header><div class="mini-posts"></div></section>'),
@@ -96,7 +90,7 @@
 		bookmarkSection.load(cookieMonster);
 	});
 
-	$('a[data-elem="book-mark"]').on('click', function(e){
+	$(hbs_handler).on('click', function(e){
 		console.log(window.location, $(e.target).hasClass("active"), e.target);
 		if( $(e.target).hasClass("active") ){
 			cookieMonster.remove(window.location.href);
