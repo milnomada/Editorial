@@ -11,8 +11,24 @@
 .taglist li:first-child {
 	padding-left: 0;
 }
-
-
 .taglist li:last-child .sep {
 	display: none;
+}
+
+.bookmark {
+	cursor: pointer;
+}
+.bookmark.active {
+	border-bottom-color: #f56a6a;
+  color: #f56a6a !important;
+}
+.bm .ln {
+	color: #3d4449;
+  font-family: "Roboto Slab",serif;
+  font-weight: 500;
+  border-bottom: none;
+}
+
+.bm .date {
+	font-size: 0.9em;
 }
