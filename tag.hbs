@@ -2,6 +2,9 @@
 {{!-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template --}}
 
+{{!-- Search results --}}
+{{> search}}
+
 {{!-- Tag info --}}
 {{#tag}}
 <header class="tag-header">
@@ -17,9 +20,9 @@ into the {body} of the default.hbs template --}}
 </header>
 {{/tag}}
 
+
 {{!-- Posts --}}
 <section>
-
     <section class="posts">
         {{#foreach posts}}
         <article>

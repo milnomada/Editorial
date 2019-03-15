@@ -2,17 +2,8 @@
 {{!-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template --}}
 
-
-
-
-{{!-- Posts --}}
-<section class="ghost-search-header">
-
-    {{!-- Search results --}}
-    <header class="major ghost-search-header"><h2>Search results</h2> </header>
-    <div id="ghost-search-results">
-    </div>
-</section>
+{{!-- Search results --}}
+{{> search}}
 
 {{!-- Featured Post --}}
 {{#is "home"}}
