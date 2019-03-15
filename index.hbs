@@ -3,6 +3,17 @@
 into the {body} of the default.hbs template --}}
 
 
+
+
+{{!-- Posts --}}
+<section>
+
+    {{!-- Search results --}}
+    <header class="major ghost-search-header"><h2>Search results</h2> </header>
+    <div id="ghost-search-results">
+    </div>
+</section>
+
 {{!-- Featured Post --}}
 {{#is "home"}}
 {{#get "posts" filter="featured:true" limit="1" as |featured_post|}}
@@ -28,14 +39,7 @@ into the {body} of the default.hbs template --}}
 {{/get}}
 {{/is}}
 
-{{!-- Posts --}}
 <section>
-
-    {{!-- Search results --}}
-    <header class="major ghost-search-header"><h2>Search results</h2> </header>
-    <div id="ghost-search-results">
-    </div>
-
     <header class="major">
         <h2>Recent posts</h2>
     </header>

@@ -8,6 +8,7 @@
 
 <header class="main content">
     <h1>{{title}}</h1>
+
 </header>
 
 {{#post}}
@@ -16,14 +17,17 @@
     <header class="post-full-header">
       <h1 class="post-full-title">{{title}}</h1>
     </header>
-    {{#get "tags" limit="all" include="count.posts" order="count.posts desc"}}
-    {{#foreach tags}}
-        <a href='{{ url }}'>
-        <h4>{{ name }} <small>({{ count.posts }})</small></h4>
-        </a>
-        <p>{{ description }}</p>
-    {{/foreach}}
-    {{/get}}
+
+      {{content}}
+      
+      {{#get "tags" limit="all" include="count.posts" order="count.posts desc"}}
+      {{#foreach tags}}
+          <a href='{{ url }}'>
+          <h4>{{ name }} <small>({{ count.posts }})</small></h4>
+          </a>
+          <p>{{ description }}</p>
+      {{/foreach}}
+      {{/get}}
   </div>
 </main>
 {{/post}}
