@@ -1,3 +1,71 @@
+.similar {
+  margin: 0 0 2em -3em;
+  width: calc(100% + 3em);
+}
+
+@media screen and (max-width: 1680px) {
+	.posts article.small {
+    width: calc(25% - 6em);
+  }
+  .similar.posts article.small {
+    width: calc(25% - 3em);
+  }
+}
+@media screen and (max-width: 1680px) {
+	.posts article.small {
+    margin-bottom: 2em;
+  }
+}
+
+@media screen and (max-width: 736px) {
+	.posts article.small {
+    width: calc(50% - 6em);
+	}
+	.similar.posts article.small {
+    width: calc(50% - 3em);
+  }
+}
+
+/*
+article.small:nth-last-child(4):before{height:100%}
+article.small:nth-last-child(3):before{height:100%}
+article.small:nth-last-child(2):before{height:100%}
+*/
+
+.posts article.small:before{
+	    height: calc(100% + 0em);
+}
+.posts article.small:nth-child(2n):before{display:block}
+.posts article.small:nth-child(2n+1):before{display:block}
+.posts article.small:nth-child(3n+1):before{display:block}
+.posts article.small:nth-child(4n+1):before{display:none}
+.posts article.small:first-child:before{display:none}
+.posts article.small:after{display:none;}
+.posts article.small {
+	min-height: 375px;
+}
+.posts article.small a.frame {
+  max-height: 138px;
+}
+
+.similar.posts article.small:before{display:none;}
+.similar.posts article.small:after{display:none;}
+.similar.posts article.small {
+	margin: 0 0 3em 3em;
+	min-height: 250px;
+}
+
+article.small h3 {
+	font-size: 0.9em;
+}
+article.small p {
+	font-size: 0.85em;
+	margin: 0 0 1em 0;
+}
+article.small a.more  {
+	font-size: 0.85em;
+}
+
 .taglist {
 	list-style: none;
 	padding-left: 0;
@@ -102,4 +170,14 @@
 
 #ghost-search-results {
 		margin-bottom: 2em;
+}
+
+.pull-bottom {
+	position: absolute;
+	bottom: 0px;
+}
+.pull-bottom-right {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
 }
