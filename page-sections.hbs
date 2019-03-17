@@ -13,17 +13,18 @@
     <header class="post-full-header">
       <h1 class="post-full-title">{{title}}</h1>
     </header>
-
+      {{ setvar 'postid' id }}
       {{content}}
       
       {{#get "tags" limit="all" include="count.posts" order="count.posts desc"}}
-      {{#foreach tags}}
+      {{#foreach tags as |tag|}}
         <div>
           <a href='{{ url }}'>
             <h4>{{ name }} <small>({{ count.posts }})</small></h4>
           </a>
           <p>{{ description }}</p>
-          {{#get "posts" limit="4" filter="tags:[{{name}}]" include="tags" as |similar|}}
+          {{tag.slug}}
+          {{#get "posts" limit="4" filter="tag:{{slug}}" include="tags" as |similar|}}
           {{!-- Posts --}}
           <section class="posts">
             {{#foreach similar}}
@@ -34,7 +35,6 @@
                 <h3><a href="{{url}}">{{title}}</a></h3>
                 <p>{{excerpt words="10"}}</p>
                 <a href="{{url}}" class="pull-bottom-right more">Read more ></a>
-                
             </article>
             {{/foreach}}
           </section>

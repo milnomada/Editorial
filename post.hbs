@@ -46,21 +46,9 @@ into the {body} of the default.hbs template --}}
 			Request similar posts only for the first tag found
 			So to minimize the requests done to build up this view.
 		--}}
-		{{prepare_tags tags}}
-		{{ setvar 'taglist' (prepare_tags tags) }}
-		{{@root.taglist}}
-		{{#if tags}}
-			{{ setvar 'tagname' '' }}
-			{{#each tags as |tag|}}
-				{{#if @first}}
-					{{ setvar 'one' (lowercase tag.name) }}
-      		One {{@root.one}}
-				{{/if}}
-			{{/each}}
 			<br>
 			<hr />
-			{{@root.taglist}}
-			{{#get "posts" limit="4" filter="tags:[{{tags[*].slug}}]" include="tags" as |similar|}}
+			{{#get "posts" limit="4" filter="tags:[{{tags[*].slug}}]+id:-{{id}}" include="tags" as |similar|}}
 			<header class="major">
 				<h3>Similar articles</h3>
 			</header>
