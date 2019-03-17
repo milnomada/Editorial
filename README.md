@@ -1,16 +1,24 @@
 # Editorial
 
-This is an Editorial updated version.
-Few fresh and useful functionalities have been added.
+This is an Editorial updated version.  
 
-## Features added:
+&nbsp;
+
+![screenshot](https://user-images.githubusercontent.com/120485/49328081-0e192680-f59d-11e8-808a-e6d6bcfa8419.png)
+
+&nbsp;
+
+With few fresh and useful functionalities added:  
 
 ### Bookmark  
-The library bookmark.js allows to keep articles as bookmarked links within the site. It's a link saving feature, using cookies to store bookmarked articles.
+The library bookmark.js allows to keep articles as bookmarked links within the site. It's a link saving feature, using cookies to store bookmarked articles.  
 A new section in the navigation sidebar appears with the links to the saved articles.
 
 ### Search
 Blog search feature on top of [ghost-search](https://github.com/HauntedThemes/ghost-search), provides a fast search functionality even for an extense blog.
+
+### Similar posts
+Similar posts are present in post page `post.hbs` and the newly added `page-section.hbs` where few posts about each seaction are shown.  
 
 **The new files are:**
 
@@ -22,20 +30,13 @@ Therefore, results are presented in the current page, page-section, home, post, 
 
 Search results dissapear as the search inputs gets empty.
 
-###...
+**...**
 
 Editorial provides news-oriented design built around a dynamic 'locking' sidebar (try the toggle to see it in action!) and purpose built for content-centric sites. Originally created by [@ajlkn](https://twitter.com/ajlkn) for [HTML5 UP](https://html5up.net) and later ported to [Ghost](https://ghost.org)
 
 **Demo: https://editorial.ghost.io**
 
 &nbsp;
-
-![screenshot](https://user-images.githubusercontent.com/120485/49328081-0e192680-f59d-11e8-808a-e6d6bcfa8419.png)
-
-
-&nbsp;
-
-# First time using a Ghost theme?
 
 Ghost uses a simple templating language called [Handlebars](http://handlebarsjs.com/) for its themes.
 
