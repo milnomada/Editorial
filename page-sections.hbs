@@ -13,7 +13,6 @@
     <header class="post-full-header">
       <h1 class="post-full-title">{{title}}</h1>
     </header>
-      {{ setvar 'postid' id }}
       {{content}}
       
       {{#get "tags" limit="all" include="count.posts" order="count.posts desc"}}
@@ -23,14 +22,13 @@
             <h4>{{ name }} <small>({{ count.posts }})</small></h4>
           </a>
           <p>{{ description }}</p>
-          {{tag.slug}}
           {{#get "posts" limit="4" filter="tag:{{slug}}" include="tags" as |similar|}}
           {{!-- Posts --}}
           <section class="posts">
             {{#foreach similar}}
             <article class="small">
                 {{#if feature_image}}
-                <a href="{{url}}" class="image fit frame"><img src="{{img_url feature_image}}" alt="{{title}}" /></a>
+                  <a href="{{url}}" class="image fit frame"><img src="{{img_url feature_image}}" alt="{{title}}" /></a>
                 {{/if}}
                 <h3><a href="{{url}}">{{title}}</a></h3>
                 <p>{{excerpt words="10"}}</p>

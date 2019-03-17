@@ -41,34 +41,33 @@ into the {body} of the default.hbs template --}}
 	<div class="content">
 		{{content}}
 
-		{{!-- 
-			Similar posts 
+		{{!-- Similar posts 
 			Request similar posts only for the first tag found
 			So to minimize the requests done to build up this view.
 		--}}
-			<br>
-			<hr />
-			{{#get "posts" limit="4" filter="tags:[{{tags[*].slug}}]+id:-{{id}}" include="tags" as |similar|}}
-			<header class="major">
-				<h3>Similar articles</h3>
-			</header>
-		  <section class="posts similar">
-		    {{#foreach similar}}
-		    <article class="small">
-	        {{#if feature_image}}
-	        <a href="{{url}}" class="image fit"><img src="{{img_url feature_image}}" alt="{{title}}" /></a>
-	        {{/if}}
-	        <h3><a href="{{url}}">{{title}}</a></h3>
-	        <a href="{{url}}" class="pull-bottom-right more">Read more ></a>
-		    </article>
-		    {{/foreach}}
-		  </section>
-		  {{else}}
-		  <p>Few posts should appear here</p>
-		  {{/get}}
-		  <hr />
+
+		<br>
+		<hr />
+		{{#get "posts" limit="4" filter="tags:[{{tags[*].slug}}]+id:-{{id}}" include="tags" as |similar|}}
+		<header class="major">
+			<h3>Similar articles</h3>
+		</header>
+	  <section class="posts similar">
+	    {{#foreach similar}}
+	    <article class="small">
+        {{#if feature_image}}
+        <a href="{{url}}" class="image fit"><img src="{{img_url feature_image}}" alt="{{title}}" /></a>
+        {{/if}}
+        <h3><a href="{{url}}">{{title}}</a></h3>
+        <a href="{{url}}" class="pull-bottom-right more">Read more ></a>
+	    </article>
+	    {{/foreach}}
+	  </section>
+	  {{else}}
+	  <p>Few posts should appear here</p>
+	  {{/get}}
+	  <hr />
 		  
-	  {{/if}}
   </div>
 
 	{{!-- Email subscribe form at the bottom of the page --}}
@@ -79,8 +78,6 @@ into the {body} of the default.hbs template --}}
 		{{subscribe_form placeholder="youremail@example.com"}}
 	</section>
 	{{/if}}
-
-	
 
 	<footer class="post-footer">
 		<div class="authors">
