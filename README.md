@@ -1,12 +1,14 @@
 # Editorial
 
-This is an Editorial updated version.  
+This is an Editorial fork.  
 
 ![screenshot](https://user-images.githubusercontent.com/120485/49328081-0e192680-f59d-11e8-808a-e6d6bcfa8419.png)
 
-&nbsp;
+With:  
+- top level navigation and social links.  
+- site options moved to right side.  
 
-With few fresh and useful functionalities added:  
+and few fresh and useful functionalities added:  
 
 ### Bookmark  
 The library bookmark.js allows to keep articles as bookmarked links within the site. It's a link saving feature, using cookies to store bookmarked articles.  
