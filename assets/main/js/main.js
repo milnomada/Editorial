@@ -172,7 +172,7 @@
 			$window.on('load.sidebar-lock', function() {
 
 				var sh, wh, st, 
-						offset_header=147;
+						offset_header=162;
 
 				// Reset scroll position to 0 if it's 1.
 					if ($window.scrollTop() == 1)
@@ -196,7 +196,8 @@
 							}
 
 						// Calculate positions.
-							x = Math.max(sh - wh, 0);
+							// x = Math.max(sh - wh, 0);
+							x = 0;
 							y = Math.max(0, $window.scrollTop() - x);
 
 						// Lock/unlock.
