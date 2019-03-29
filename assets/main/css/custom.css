@@ -74,11 +74,20 @@ noscript .content .close {
 	display: none;
 }
 
+.post-full-title {
+	font-size: 3em;
+}
+
 #main>.inner>section {
 	border-top: none;
 }
+#main>.inner>section:first-of-type {
+	padding: 2em 0 4em 0;
+}
 #sidebar .inner {
 	padding-top: 4em;
+	height: 100vh;
+	overflow-y:scroll; 
 }
 #sidebar>.inner>* {
 	border-bottom: none;
