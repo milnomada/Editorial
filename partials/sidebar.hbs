@@ -1,11 +1,30 @@
 <div id="sidebar">
 	<div class="inner">
 
-		{{!-- Nav - partials/navigation.hbs --}}
-		{{#if @site.navigation}}
-			{{navigation}}
-		{{/if}}
-		
+
+
+		{{!-- Search bar --}}
+		<header class="search">
+			<h2>Search</h2>
+			<span>for any article in the site</span>
+			<div class="search-bar"><input id="ghost-search-field" /><i class="icon fa-close"></i></div>
+		</header>
+
+		{{#get "posts" limit="4" filter="tag:hash-original" include="tags" as |similar|}}
+		<header class="major">
+			<h3>Most Visited</h3>
+		</header>
+	  <section class="mini-posts">
+	    {{#foreach similar}}
+	    <article>
+				<h3><a href="{{url}}">{{title}}</a></h3>
+				<p>{{excerpt words="15"}}</p>
+			</article>
+	    {{/foreach}}
+	  </section>
+	  {{else}}
+	  <p>Few posts should appear here</p>
+	  {{/get}}
 
 		{{!-- Tags or Sections --}}
 		<section>

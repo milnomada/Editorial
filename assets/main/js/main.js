@@ -76,10 +76,12 @@
 		// Inactive by default on <= large.
 			breakpoints.on('<=large', function() {
 				$sidebar.addClass('inactive');
+				$('.toggle').show();
 			});
 
 			breakpoints.on('>large', function() {
 				$sidebar.removeClass('inactive');
+				$('.toggle').hide();
 			});
 
 		// Hack: Workaround for Chrome/Android scrollbar position bug.
@@ -169,7 +171,8 @@
 
 			$window.on('load.sidebar-lock', function() {
 
-				var sh, wh, st;
+				var sh, wh, st, 
+						offset_header=147;
 
 				// Reset scroll position to 0 if it's 1.
 					if ($window.scrollTop() == 1)
@@ -198,8 +201,8 @@
 
 						// Lock/unlock.
 							if ($sidebar_inner.data('locked') == 1) {
-
-								if (y <= 0)
+								console.log("lock", offset_header)
+								if (y <= offset_header)
 									$sidebar_inner
 										.data('locked', 0)
 										.css('position', '')
@@ -210,8 +213,8 @@
 
 							}
 							else {
-
-								if (y > 0)
+								console.log("un lock", offset_header)
+								if (y > offset_header)
 									$sidebar_inner
 										.data('locked', 1)
 										.css('position', 'fixed')

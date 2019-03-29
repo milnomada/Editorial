@@ -2,8 +2,6 @@
 
 This is an Editorial updated version.  
 
-&nbsp;
-
 ![screenshot](https://user-images.githubusercontent.com/120485/49328081-0e192680-f59d-11e8-808a-e6d6bcfa8419.png)
 
 &nbsp;
@@ -15,20 +13,21 @@ The library bookmark.js allows to keep articles as bookmarked links within the s
 A new section in the navigation sidebar appears with the links to the saved articles.
 
 ### Search
-Blog search feature on top of [ghost-search](https://github.com/HauntedThemes/ghost-search), provides a fast search functionality even for an extense blog.
-
-### Similar posts
-Similar posts are present in post page `post.hbs` and the newly added `page-section.hbs` where few posts about each seaction are shown.  
-
-**The new files are:**
-
-- `partials/search.hbs` - The search results view
-- `page-section.hbs` - Used as a resume of tags (*called sections*)
+Blog search feature on top of [ghost-search](https://github.com/HauntedThemes/ghost-search), provides a fast search functionality even for an extense blog.  
 
 The search funcitonality has been added to the base files.
 Therefore, results are presented in the current page, page-section, home, post, tag, as a emerging section below the main header.  
 
 Search results dissapear as the search inputs gets empty.
+
+### Similar posts
+Similar posts feature has been added by default.  
+Those can be seen in post page `post.hbs` and the newly added `page-section.hbs` where few posts about each seaction are shown.  
+
+**The new files are:**
+
+- `partials/search.hbs` - The search results view
+- `page-section.hbs` - Used as a resume of tags (*called sections*)
 
 **...**
 

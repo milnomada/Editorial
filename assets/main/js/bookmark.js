@@ -17,7 +17,7 @@
 		s:'.bookmark-box .mini-posts',
 		create:function(){
 			if( $(this.s).length == 0 )
-				$(this.e).insertAfter('#sidebar #menu')
+				$(this.e).insertAfter('#sidebar .search')
 		},
 		load:function(cm){
 			var to=$(this.s), ls=cm.list();

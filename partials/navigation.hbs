@@ -1,16 +1,22 @@
-<nav id="menu">
-    <header class="major">
-        <h2>Menu</h2>
-    </header>
+<div class="k-nav">  
+  <nav id="menu">
+    <!--<header class="major">
+      <h2>Menu</h2>
+    </header>-->
     <ul class="links">
-        {{#foreach navigation}}
-        <li class="nav-{{slug}} {{#if current}}active{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
-        {{/foreach}}
+      {{#foreach navigation}}
+      <li class="nav-{{slug}} {{#if current}}active{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
+      {{/foreach}}
     </ul>
-    {{!-- Search bar --}}
-		<header class="search">
-			<h2>Search</h2>
-			<span>for any article in the site</span>
-		</header>
-		<div class="search-bar"><input id="ghost-search-field" /><i class="icon fa-close"></i></div>
-</nav>
+  </nav>
+  
+  <ul class="icons">
+    {{#if @site.twitter}}
+      <li><a href="{{twitter_url @site.twitter}}" class="icon fa-twitter" title="Twitter"><span class="label">Twitter</span></a></li>
+    {{/if}}
+    {{#if @site.facebook}}
+      <li><a href="{{facebook_url @site.facebook}}" class="icon fa-facebook" title="Facebook"><span class="label">Facebook</span></a></li>
+    {{/if}}
+    <li><a href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" class="icon fa-rss" target="_blank" rel="noopener"><span class="label" title="RSS">RSS</span></a></li>
+  </ul>
+</div>
