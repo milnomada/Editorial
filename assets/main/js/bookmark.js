@@ -10,7 +10,8 @@
  */
 (function($) {
 
-	var hbs_handler='a[data-elem="book-mark"]';
+	var hbs_handler='a[data-elem="book-mark"]',
+			s_handler='img.share';
 
 	var bookmarkSection={
 		e:$('<section class="bookmark-box"><header class="major"><h2>Bookmarks</h2></header><div class="mini-posts"></div></section>'),
@@ -50,6 +51,7 @@
 					li=this.c.links[i]
 					if(li.url===window.location.href) {
 						 $('a[data-elem="book-mark"]').addClass('active');
+						 $('a[data-elem="book-mark"]').attr('title','Saved');
 					}
 				}
 			}
@@ -96,12 +98,39 @@
 			cookieMonster.remove(window.location.href);
 			bookmarkSection.load(cookieMonster);
 			$(e.target).removeClass("active");
+			$(e.target).attr('title','Save in your collection');
 		}
 		else {
 			cookieMonster.save(window.location.href);
 			bookmarkSection.load(cookieMonster);
 			$(e.target).addClass("active");
+			$(e.target).attr('title','Saved');
 		}
+	})
+
+	var sharer=function(){
+		var 
+		  ep_fb="https://www.facebook.com/share.php",
+		  ep_tw="https://twitter.com/intent/tweet",
+			fb_url=ep_fb+'?u='+window.location,
+			tw_url=ep_tw+'?url='+window.location+'&text='+$('h1').html().replace(/ /g, '+');
+
+		$('a.fa-facebook').attr('href', fb_url);
+		$('a.fa-twitter').attr('href', tw_url);
+	}
+
+	sharer();
+
+	$(s_handler).on('click', function(e){
+		console.log(window.location, $(e.target).hasClass("active"), e.target);
+
+		if($(e.target).hasClass('rotate90'))
+			$('.layer').animate({left:'0px',opacity:0.5}, 300, function(){ $('.layer').hide() }) //.hide();
+		else
+			$('.layer').show().animate({left:'-45px',opacity:1}, 300);
+
+		$(e.target).toggleClass('rotate90')
+
 	})
 
 })(jQuery);

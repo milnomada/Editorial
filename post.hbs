@@ -24,7 +24,15 @@ into the {body} of the default.hbs template --}}
 	    </ul>
 	  {{/if}}
 	  {{!-- bookmark it! --}}
+	  {{@config.img_bucket}}
 	  <ul class="icons pull-right">
+	  	<li>
+	  		<ul class="icons layer">
+      		<li><a href="" class="icon fa-twitter" target="_blank" title="Share on Twitter"><span class="label">Twitter</span></a></li>
+      		<li><a href="" class="icon fa-facebook" target="_blank" title="Share on Facebook"><span class="label">Facebook</span></a></li>
+  			</ul>
+  		</li>
+	  	<li><img class="icon share" title="Share" data-elem="" src="{{@config.img_bucket}}/share_{{id}}.png" /></li>
       <li><a class="icon fa-bookmark bookmark" title="Save in your collection" data-elem="book-mark"><span  class=""></span></a></li>
     </ul>
 		{{#if custom_excerpt}}
