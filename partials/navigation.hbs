@@ -1,9 +1,7 @@
 <div class="k-nav">  
   <nav id="menu">
-    <!--<header class="major">
-      <h2>Menu</h2>
-    </header>-->
     <ul class="links">
+      <li><a class="logo" href="{{@site.url}}">{{@site.title}}</a></li>
       {{#foreach navigation}}
       <li class="nav-{{slug}} {{#if current}}active{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
       {{/foreach}}

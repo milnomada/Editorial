@@ -24,15 +24,7 @@
   <div id="over-wrap">
     {{!-- Header --}}
     <header id="header">
-      {{#if @site.logo}}
-      <div class="k-logo">
-        <span class="logo">{{@site.title}}</span>
-      </div>
-        <!-- <a href="{{@site.url}}" class="logo image"><img src="{{@site.logo}}" alt="{{@site.title}}" /></a> -->
-      {{else}}
-        <h1>{{@site.title}}</h1>
-        <!-- <a href="{{@site.url}}" class="logo">{{@site.title}}</a> -->
-      {{/if}}
+      
       {{!-- Nav - partials/navigation.hbs --}}
       {{#if @site.navigation}}
         {{navigation}}
