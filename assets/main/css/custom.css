@@ -113,6 +113,7 @@ noscript .content .close {
 }
 #main>.inner {
   padding: 0 2em .1em 2em;
+  word-break: break-word;
 }
 
 @media screen and (min-width: 1680px) {

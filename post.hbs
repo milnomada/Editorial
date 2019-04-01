@@ -15,6 +15,7 @@ into the {body} of the default.hbs template --}}
 		{{!-- 
 				Load internal tags if present
 			--}}
+		{{setvar 'original' 0 }}	
 		{{#foreach tags visibility="internal"}}
 			{{#if (compare name '#original')}}
 				{{setvar 'original' 1 }}
