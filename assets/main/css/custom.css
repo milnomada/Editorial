@@ -310,6 +310,23 @@ article.small a.more  {
 	font-size: 0.9em;
 }
 
+.author-box {
+	position: relative;
+}
+.author-box a.ln {
+	border-bottom: none;
+}
+.author-box a.tag {
+	display: inline-block;
+}
+.author-box .icons {
+  position: absolute;
+	right: 20px;
+}
+.author-box-content {
+	display: block;
+}
+
 /* -------------------
 		search feature
 	 -------------------	*/

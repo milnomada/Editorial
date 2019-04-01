@@ -12,29 +12,84 @@ into the {body} of the default.hbs template --}}
 	<header class="main content">
 		<span class="date">{{date format="MMMM D, YYYY"}}</span>
 		<h1>{{title}}</h1>
-		{{#if tags}}
-			<span>On </span>
-	    <ul class="taglist">
-	    {{#foreach tags}}
-	      <li>
-	        <a href="/tag/{{slug}}" title="{{name}}" class="tag tag-{{id}} {{slug}}">{{name}}</a>
-	        <span class="sep">,</span>
-	      </li>
-	    {{/foreach}}
+		{{!-- 
+				Load internal tags if present
+			--}}
+		{{#foreach tags visibility="internal"}}
+			{{#if (compare name '#original')}}
+				{{setvar 'original' 1 }}
+			{{/if}}
+		{{/foreach}}
+
+		{{#if (compare @root.original 0) }}
+			{{!-- 
+				Article has not the #original tag, then draw header as picker
+			--}}
+			{{#if tags}}
+				<span>On </span>
+		    <ul class="taglist">
+		    {{#foreach tags}}
+		      <li>
+		        <a href="/tag/{{slug}}" title="{{name}}" class="tag tag-{{id}} {{slug}}">{{name}}</a>
+		        <span class="sep">,</span>
+		      </li>
+		    {{/foreach}}
+		    </ul>
+		  {{/if}}
+		  {{!-- bookmark it! --}}
+		  <ul class="icons pull-right">
+		  	<li>
+		  		<ul class="icons layer">
+	      		<li><a href="" class="icon fa-twitter" target="_blank" title="Share on Twitter"><span class="label">Twitter</span></a></li>
+	      		<li><a href="" class="icon fa-facebook" target="_blank" title="Share on Facebook"><span class="label">Facebook</span></a></li>
+	  			</ul>
+	  		</li>
+		  	<li><img class="icon share" title="Share" data-elem="" src="{{@config.img_bucket}}/share_{{id}}.png" /></li>
+	      <li><a class="icon fa-bookmark bookmark" title="Save in your collection" data-elem="book-mark"><span  class=""></span></a></li>
 	    </ul>
-	  {{/if}}
-	  {{!-- bookmark it! --}}
-	  {{@config.img_bucket}}
-	  <ul class="icons pull-right">
-	  	<li>
-	  		<ul class="icons layer">
-      		<li><a href="" class="icon fa-twitter" target="_blank" title="Share on Twitter"><span class="label">Twitter</span></a></li>
-      		<li><a href="" class="icon fa-facebook" target="_blank" title="Share on Facebook"><span class="label">Facebook</span></a></li>
-  			</ul>
-  		</li>
-	  	<li><img class="icon share" title="Share" data-elem="" src="{{@config.img_bucket}}/share_{{id}}.png" /></li>
-      <li><a class="icon fa-bookmark bookmark" title="Save in your collection" data-elem="book-mark"><span  class=""></span></a></li>
-    </ul>
+		{{else}}
+			{{!-- 
+				Article has the #original tag.
+				Print author and embbed tags within Author header
+			--}}
+
+			<div class="authors">
+				{{#foreach authors}}
+					{{#if profile_image}}
+						{{setvar 'profile_image' profile_image }}
+						{{setvar 'profile_image_name' profile_image }}
+					{{/if}}
+					{{setvar 'profile_name' name }}
+				{{/foreach}}
+
+				<div class="author-box" >
+					{{#if @root.profile_image}}
+						<a href="{{url}}" class="ln"><img class="author-profile-image" src="{{@root.profile_image}}" alt="{{@root.profile_image_name}}" /></a>
+					{{/if}}
+					<section class="author-box-content">
+						<div class="author-box-label">Author</div>
+						<h5 class="author-box-name">{{@root.profile_name}}</h5>
+						<span>On </span>
+				    {{#foreach tags}}
+				    	<a href="/tag/{{slug}}" title="{{name}}" class="tag tag-{{id}}">{{name}}</a>
+				    {{/foreach}}
+					</section>
+					{{!-- bookmark it! --}}
+				  <ul class="icons pull-right">
+				  	<li>
+				  		<ul class="icons layer">
+			      		<li><a href="" class="icon fa-twitter" target="_blank" title="Share on Twitter"><span class="label">Twitter</span></a></li>
+			      		<li><a href="" class="icon fa-facebook" target="_blank" title="Share on Facebook"><span class="label">Facebook</span></a></li>
+			  			</ul>
+			  		</li>
+				  	<li><img class="icon share" title="Share" data-elem="" src="{{@config.img_bucket}}/share_{{id}}.png" /></li>
+			      <li><a class="icon fa-bookmark bookmark" title="Save in your collection" data-elem="book-mark"><span  class=""></span></a></li>
+			    </ul>
+				</div>
+			</div>
+		{{/if}}
+
+		
 		{{#if custom_excerpt}}
 			<p class="content">{{custom_excerpt}}</p>
 		{{/if}}
@@ -57,24 +112,26 @@ into the {body} of the default.hbs template --}}
 		<br>
 		<hr />
 		{{#get "posts" limit="4" filter="tags:[{{tags[*].slug}}]+id:-{{id}}" include="tags" as |similar|}}
-		<header class="major">
-			<h3>Similar articles</h3>
-		</header>
-	  <section class="posts similar">
-	    {{#foreach similar}}
-	    <article class="small">
-        {{#if feature_image}}
-        <a href="{{url}}" class="image fit"><img src="{{img_url feature_image}}" alt="{{title}}" /></a>
-        {{/if}}
-        <h3><a href="{{url}}">{{title}}</a></h3>
-        <a href="{{url}}" class="pull-bottom-right more">Read more ></a>
-	    </article>
-	    {{/foreach}}
-	  </section>
+			<header class="major">
+				<h3>Similar articles</h3>
+			</header>
+		  <section class="posts similar">
+		    {{#foreach similar}}
+		    <article class="small">
+	        {{#if feature_image}}
+	        <a href="{{url}}" class="image fit"><img src="{{img_url feature_image}}" alt="{{title}}" /></a>
+	        {{/if}}
+	        <h3><a href="{{url}}">{{title}}</a></h3>
+	        <a href="{{url}}" class="pull-bottom-right more">Read more ></a>
+		    </article>
+		    {{/foreach}}
+		  </section>
+			
 	  {{else}}
 	  <p>Few posts should appear here</p>
 	  {{/get}}
 	  <hr />
+
 		  
   </div>
 
@@ -88,6 +145,11 @@ into the {body} of the default.hbs template --}}
 	{{/if}}
 
 	<footer class="post-footer">
+		{{#if (compare @root.original 1) }}
+		{{else}}
+		{{!-- 
+				Print the picker, just if the post is not an original one
+			--}}
 		<div class="authors">
 			{{#foreach authors}}
 			<a class="author-box" href="{{url}}">
@@ -106,7 +168,7 @@ into the {body} of the default.hbs template --}}
 			</a>
 			{{/foreach}}
 		</div>
-
+		{{/if}}
 	</footer>
 
 	{{!--
