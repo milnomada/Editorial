@@ -312,6 +312,7 @@ article.small a.more  {
 
 .author-box {
 	position: relative;
+	cursor: default;
 }
 .author-box a.ln {
 	border-bottom: none;
@@ -323,8 +324,14 @@ article.small a.more  {
   position: absolute;
 	right: 20px;
 }
+.author-box:hover {
+  color: inherit!important;
+}
 .author-box-content {
 	display: block;
+}
+.author-box-content .sep:last-child {
+	display: none;
 }
 
 /* -------------------
