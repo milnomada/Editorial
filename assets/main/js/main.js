@@ -203,6 +203,8 @@
 						// Lock/unlock.
 							if ($sidebar_inner.data('locked') == 1) {
 								console.log("lock", offset_header)
+								
+								$(".settings").prependTo("#sidebar .inner");
 								if (y <= offset_header)
 									$sidebar_inner
 										.data('locked', 0)
@@ -215,6 +217,7 @@
 							}
 							else {
 								console.log("un lock", offset_header)
+								$(".settings").prependTo("#main .inner");
 								if (y > offset_header)
 									$sidebar_inner
 										.data('locked', 1)

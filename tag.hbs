@@ -5,6 +5,13 @@ into the {body} of the default.hbs template --}}
 {{!-- Search results --}}
 {{> search}}
 
+<section class="settings">
+  <ul class="icons">
+    <li><a class="icon fa-th-large active" title="Grid view" data-elem="view-grid"><span  class=""></span></a></li>
+    <li><a class="icon fa-bars" title="List view" data-elem="view-list"><span  class=""></span></a></li>
+  </ul>
+</section>
+
 {{!-- Tag info --}}
 {{#tag}}
 <header class="tag-header">
@@ -25,7 +32,7 @@ into the {body} of the default.hbs template --}}
 <section>
     <section class="posts">
         {{#foreach posts}}
-        <article>
+        {{!-- <article>
             {{#if feature_image}}
             <a href="{{url}}" class="image fit"><img src="{{img_url feature_image}}" alt="{{title}}" /></a>
             {{/if}}
@@ -34,6 +41,19 @@ into the {body} of the default.hbs template --}}
             <ul class="actions special">
                 <li><a href="{{url}}" class="button">Full Story</a></li>
             </ul>
+        </article>--}}
+        <article class="">
+          {{#if feature_image}}
+          <a href="{{url}}" class="image fit"><img src="{{img_url feature_image}}" alt="{{title}}" /></a>
+          {{/if}}
+          <div class="kc" >
+            <span class="date">{{date}}</span>
+            <h3><a href="{{url}}">{{title}}</a></h3>
+            <p>{{excerpt words="33"}}</p>
+            <ul class="actions">
+              <li><a href="{{url}}" class=""> >> Full article</a></li>
+            </ul>
+          </div>
         </article>
         {{/foreach}}
     </section>
