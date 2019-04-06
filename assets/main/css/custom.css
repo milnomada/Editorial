@@ -76,7 +76,7 @@ noscript .content .close {
 }
 #header .logo {
 	font-size: 1.625em;
-  /* border-bottom: solid 4px #f56a6a; */
+  letter-spacing: normal;
   padding: 0em .6em 0em 0;
   display: inline-block;
 }
@@ -112,6 +112,25 @@ noscript .content .close {
 #menu ul {
 	text-transform: capitalize;
 }
+#menu .icon {
+	display: inline-block;
+	height: 2.3em;
+	width: 2.3em;
+	vertical-align: middle;
+	margin-bottom: .75em;
+	margin-right: .3em;
+	margin-left: .5em;
+	background-image: url(/assets/images/taf_64.png);
+	background-repeat:  no-repeat;;
+	background-size: 100% 100%;
+	background-position: 0 0;
+}
+#menu .icon:hover {
+	background-image: url(/assets/images/taf_64_2.png);
+	background-repeat:  no-repeat;
+	background-size: 100% 100%;
+	background-position: 0 0;
+}
 .similar {
   margin: 0 0 2em -3em;
   width: calc(100% + 3em);
@@ -121,7 +140,16 @@ noscript .content .close {
 }
 #main>.inner {
   padding: 0 2em .1em 2em;
-  word-break: break-word;
+  word-wrap: break-word;
+}
+.author-box .author-profile-image {
+  height: 50px;
+  width: 50px;
+  margin-right: 15px;
+}
+
+.author-profile-image {
+	margin: 0px 0px 15px 10px;
 }
 
 @media screen and (min-width: 1680px) {

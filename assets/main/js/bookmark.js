@@ -38,11 +38,12 @@
 
 	var cookieMonster={
 		c:null,
+		dur: { expires: 365 },
 		check:function(){
 			var cookie=Cookies.get('tafbmkc');
 			if(!cookie){
 				this.c={ 'created':Date.now(),'links':[] }
-				Cookies.set('tafbmkc', JSON.stringify(this.c));
+				Cookies.set('tafbmkc', JSON.stringify(this.c), this.dur);
 			} else {
 				this.c = JSON.parse(cookie);
 				console.log(this.c)
@@ -59,7 +60,7 @@
 		save:function(link){
 			this.c.links.push({'add':Date.now(),'url':link,'name':$('h1').html()})
 			console.log(JSON.stringify(this.c))
-			Cookies.set('tafbmkc', JSON.stringify(this.c));
+			Cookies.set('tafbmkc', JSON.stringify(this.c), this.dur);
 			console.log(this.c)
 		},
 		remove:function(link){
@@ -70,7 +71,7 @@
 					this.c.links.push(li)
 			}
 			console.log(JSON.stringify(this.c))
-			Cookies.set('tafbmkc', JSON.stringify(this.c));
+			Cookies.set('tafbmkc', JSON.stringify(this.c), this.dur);
 			console.log(this.c)
 		},
 		list:function(){
