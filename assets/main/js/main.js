@@ -203,6 +203,9 @@
 						// Lock/unlock.
 							if ($sidebar_inner.data('locked') == 1) {
 								console.log("lock", offset_header)
+								console.log("sidebar height", $sidebar.height());
+
+								//$('#footer').css({"margin-top":$sidebar.height()+"px"})
 								
 								$(".settings").prependTo("#sidebar .inner");
 								if (y <= offset_header)
@@ -221,7 +224,7 @@
 								if (y > offset_header)
 									$sidebar_inner
 										.data('locked', 1)
-										.css('position', 'fixed')
+										.css('position', 'sticky')
 										.css('top', -1 * x);
 
 							}

@@ -133,18 +133,16 @@ into the {body} of the default.hbs template --}}
 	  <p>Few posts should appear here</p>
 	  {{/get}}
 	  <hr />
-
+	  {{!-- Email subscribe form at the bottom of the page --}}
+		{{#if @labs.subscribers}}
+		<section class="subscribe-form">
+			<h3 class="subscribe-form-title">Subscribe to {{@site.title}}</h3>
+			<p>Get the latest posts delivered right to your inbox</p>
+			{{subscribe_form placeholder="youremail@example.com"}}
+		</section>
+		{{/if}}
 		  
   </div>
-
-	{{!-- Email subscribe form at the bottom of the page --}}
-	{{#if @labs.subscribers}}
-	<section class="subscribe-form">
-		<h3 class="subscribe-form-title">Subscribe to {{@site.title}}</h3>
-		<p>Get the latest posts delivered right to your inbox</p>
-		{{subscribe_form placeholder="youremail@example.com"}}
-	</section>
-	{{/if}}
 
 	<footer class="post-footer">
 		{{#if (compare @root.original 1) }}
@@ -171,8 +169,8 @@ into the {body} of the default.hbs template --}}
 			{{/foreach}}
 		</div>
 		{{/if}}
+		
 	</footer>
-
 	{{!--
 	<section class="post-full-comments">
 		If you want to embed comments, this is a good place to do it!
@@ -183,7 +181,7 @@ into the {body} of the default.hbs template --}}
 {{/post}}
 
 <script>
-	var images = document.querySelectorAll('.kg-gallery-image img');
+	var images = document.querySelectorAll('.kg-gallery-image img'), not_infinite=true;
 	images.forEach(function (image) {
 		var container = image.closest('.kg-gallery-image');
 		var width = image.attributes.width.value;

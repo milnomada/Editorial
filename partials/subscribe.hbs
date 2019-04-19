@@ -1,0 +1,26 @@
+<div class="gh-flow-content-wrap">
+  <section class="gh-flow-content">
+    {{^if success}}
+      <header>
+        <h1>Subscribe to {{@site.title}}</h1>
+      </header>
+
+      {{subscribe_form
+        form_class="gh-signin"
+        input_class="gh-input"
+        button_class="gh-btn gh-btn-blue gh-btn-block"
+        placeholder="Your email address"
+        autofocus="true"
+      }}
+    {{else}}
+      <header>
+        <h1>Subscribed!</h1>
+      </header>
+
+      <p>
+        You've successfully subscribed to <em>{{@site.title}}</em>
+        with the email address <em>{{email}}</em>.
+      </p>
+    {{/if}}
+  </section>
+</div>

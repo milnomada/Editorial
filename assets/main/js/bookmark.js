@@ -21,6 +21,10 @@
 	+ Add cookieMonster as base cookie class
 	+ Add bookmark feature as BC
 	+ Add View feature VC
+
+	Changes 0.3
+	-----------
+	+ Add About hash scroll
  */
 (function($) {
 
@@ -144,7 +148,7 @@
 
 		update_view() {
 			if(super.get().status == 'list') {
-				$('.posts article').addClass('k');
+				$('.posts article:not(.small)').addClass('k');
 				post_class='k';
 				$('.settings .icons a[data-elem="view-list"]').addClass("active");
 				$('.settings .icons a[data-elem="view-grid"]').removeClass("active");
@@ -230,5 +234,17 @@
 			} break;
 		}
 	})
+
+	if(window.location.href.indexOf('about') != -1) {
+
+		var str=window.location.href.substring( window.location.href.indexOf('#')+1 )
+	  var elem= $( "*[name='"+str.toLowerCase()+"']" )[0];
+	  if(!elem)
+	    return
+	  $('html, body').animate({
+	      scrollTop: $(elem).offset().top
+	  }, { duration:1000, easing:'linear'}); 
+	  
+	}
 
 })(jQuery);
