@@ -235,7 +235,8 @@
 		}
 	})
 
-	if(window.location.href.indexOf('about') != -1) {
+	var wlh=window.location.href;
+	if(wlh.indexOf('about')!= -1 || wlh.indexOf('terms')!= -1 ) {
 
 		var str=window.location.href.substring( window.location.href.indexOf('#')+1 )
 	  var elem= $( "*[name='"+str.toLowerCase()+"']" )[0];
