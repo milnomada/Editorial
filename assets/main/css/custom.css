@@ -60,6 +60,7 @@ html{
 }
 .iwrap img {
 	margin: 0 auto;
+	display: block;
 }
 
 p.soon {
