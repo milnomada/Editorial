@@ -15,7 +15,7 @@
 			</div>
 			<div class="slider-box">
 				<div class="slider">
-					{{#get "posts" limit="7" filter="tag:hash-most-visited" include="tags" as |similar|}}
+					{{#get "posts" limit="7" include="tags" order="published_at desc" as |similar|}}
 					    {{#foreach similar}}
 					    <div class="slide">
 					    	<!-- {{#if feature_image}}
