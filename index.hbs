@@ -10,57 +10,116 @@ into the {body} of the default.hbs template --}}
 {{#is "home"}}
 {{#get "posts" filter="featured:true" limit="1" as |featured_post|}}
   {{#foreach featured_post}}
-    <article id="banner">
-      <div class="content">
+    <article id="featured">
+      <div class="content bbg">
         <header>
           <h1><a href="{{url}}">{{title}}</a></h1>
           {{#if custom_excerpt}}<p>{{custom_excerpt}}</p>{{/if}}
         </header>
         {{content words="42"}}
-        <ul class="actions">
-          <li><a href="{{url}}" class="button big">Learn More</a></li>
-        </ul>
       </div>
       {{#if feature_image}}
-      <a href="{{url}}" class="image object">
+      <div class="image object">
         <img src="{{img_url feature_image}}" alt="{{title}}" />
-      </a>
+      </div>
+      <div class="overlay">
+        <ul class="actions">
+          <li><a href="{{url}}" class="button big">Read More</a></li>
+        </ul>
+      </div>
       {{/if}}
     </article>
+    <div class="flex-wrapper">
+    {{#get "posts" limit="2" filter="tag:hash-most-visited" include="tags" as |feat|}}
+      {{#foreach feat}}
+        <article id="feat">
+          <div class="content bbg">
+            <header>
+              <h2><a href="{{url}}">{{title}}</a></h2>
+            </header>
+            {{content words="25"}}
+          </div>
+          {{#if feature_image}}
+          <div class="image object">
+            <img src="{{img_url feature_image}}" alt="{{title}}" />
+          </div>
+          <ul class="actions">
+            <li><a href="{{url}}" class="button big">Read More</a></li>
+          </ul>
+          {{/if}}
+        </article>
+      {{/foreach}}
+    {{/get}}
+    </div>
   {{/foreach}}
 {{/get}}
 {{/is}}
 
 {{#is "paged"}}
-    {{!-- nothing --}}
+  {{!-- nothing --}}
 {{else}}
-<section class="settings">
-  <ul class="icons">
-    <li><a class="icon fa-th-large active" title="Grid view" data-elem="view-grid"><span  class=""></span></a></li>
-    <li><a class="icon fa-bars" title="List view" data-elem="view-list"><span  class=""></span></a></li>
-  </ul>
+<section>
+  <div class="settings">
+    <ul class="icons">
+      <li><a class="icon fa-th-large active" title="Grid view" data-elem="view-grid"><span  class=""></span></a></li>
+      <li><a class="icon fa-bars" title="List view" data-elem="view-list"><span  class=""></span></a></li>
+    </ul>
+  </div>
 </section>
-<header class="major">
-  <h2>Recent posts</h2>
-</header>
-
 {{/is}}
-<section class="posts">
-  {{#foreach posts}}
-  <article class="">
-    {{#if feature_image}}
-    <a href="{{url}}" class="image fit"><img src="{{img_url feature_image}}" alt="{{title}}" /></a>
-    {{/if}}
-    <div class="kc" >
-      <span class="date">{{date}}</span>
-      <h3><a href="{{url}}">{{title}}</a></h3>
-      <p>{{excerpt words="33"}}</p>
-      <ul class="actions">
-        <li><a href="{{url}}" class=""> >> Full article</a></li>
-      </ul>
-    </div>
-  </article>
+
+{{!-- Random Section --}}
+{{#get "tags" limit="2" order="published_at desc"}}
+<section>
+  {{#foreach tags}}
+    <h2 class="title mid">{{name}}</h2>
+    {{#get "posts" limit="4" filter="tag:{{slug}}" order="published_at desc" as |category|}}
+      <div class="flex-wrapper category">
+        {{#foreach category}}
+          <article id="feat">
+            <div class="content bbg">
+              <header>
+                <h2><a href="{{url}}">{{title}}</a></h2>
+              </header>
+              {{content words="25"}}
+            </div>
+            {{#if feature_image}}
+            <div class="image object">
+              <img src="{{img_url feature_image}}" alt="{{title}}" />
+            </div>
+            <div class="overlay">
+              <ul class="actions">
+                <li><a href="{{url}}" class="button big">Read More</a></li>
+              </ul>
+            </div>
+            {{/if}}
+          </article>
+        {{/foreach}}
+      </div>
+    {{/get}}
   {{/foreach}}
+</section>
+{{/get}}
+
+<section>
+  <h2 class="title mid">More articles</h2>
+  <div class="posts">
+    {{#foreach posts}}
+      <article class="">
+        {{#if feature_image}}
+        <a href="{{url}}" class="image fit"><img src="{{img_url feature_image}}" alt="{{title}}" /></a>
+        {{/if}}
+        <div class="kc" >
+          <span class="date">{{date}}</span>
+          <h3><a href="{{url}}">{{title}}</a></h3>
+          <p>{{excerpt words="33"}}</p>
+          <ul class="actions">
+            <li><a href="{{url}}" class=""> >> Full article</a></li>
+          </ul>
+        </div>
+      </article>
+    {{/foreach}}
+</div>
 </section>
 
 <noscript>
