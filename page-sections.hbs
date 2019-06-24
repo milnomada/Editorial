@@ -24,7 +24,7 @@
             {{#if feature_image}}
               <a href="{{url}}" class="image fit frame"><img src="{{img_url feature_image}}" alt="{{title}}" /></a>
             {{/if}}
-            <h3><a href="{{url}}">{{title}}</a></h3>
+            <h3><a href="{{url}}">{{@index % 2}} {{title}}</a></h3>
             <p>{{excerpt words="10"}}</p>
             <a href="{{url}}" class="pull-bottom-right more">Read more ></a>
           </article>

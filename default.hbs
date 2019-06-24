@@ -12,8 +12,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   {{!-- Styles'n'Scripts --}}
+  
   <link rel="stylesheet" type="text/css" href="{{asset "main/css/main.css"}}" />
-  <link rel="stylesheet" type="text/css" href="{{asset "main/css/custom.css"}}" />
+  <link rel="stylesheet" type="text/css" href="{{asset "main/css/slick.css"}}" />
+  <link rel="stylesheet" type="text/css" href="{{asset "main/css/slick-theme.css"}}" />
+  <link rel="stylesheet" type="text/css" href="{{asset "main/css/news.css"}}" />
+  <link rel="stylesheet" type="text/css" href="{{asset "main/css/media.css"}}" />
+
 
   {{!-- This tag outputs SEO meta+structured data and other important settings --}}
   {{ghost_head}}
@@ -21,34 +26,30 @@
 </head>
 <body class="is-preload {{body_class}}">
 
+
   <div id="over-wrap">
-    {{!-- Header --}}
-    <header id="header">
-      
-      {{!-- Nav - partials/navigation.hbs --}}
-      {{#if @site.navigation}}
-        {{navigation}}
-      {{/if}}
-      
-    </header>
     <div id="wrapper">
+      <div id="wrap"></div>
+      {{> top}}
       {{!-- The left sidebar - partials/sidebar.hbs --}}
       {{> sidebar}}
-      <main id="main">
+      <div id="main">
         <div class="inner">
           {{> noscript}}
           {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
           {{{body}}}
         </div>
-      </main>
+      </div>
     </div>
     {{> footer}}
   </div>
+  
 
   {{!-- Theme Scripts --}}
   <script src="{{asset "main/js/jquery.min.js"}}"></script>
   <script src="{{asset "main/js/browser.min.js"}}"></script>
   <script src="{{asset "main/js/breakpoints.min.js"}}"></script>
+  <script src="{{asset "main/js/slick.min.js"}}"></script>
   <script src="{{asset "main/js/cookie.js"}}"></script>
   <script src="{{asset "main/js/util.js"}}"></script>
   <script src="{{asset "main/js/main.js"}}"></script>
@@ -63,8 +64,34 @@
   <script src="{{asset "main/js/content-api.min.js"}}"></script>
   <script src="{{asset "main/js/ghost-search.min.js"}}"></script>
   <script src="{{asset "main/js/gs.js"}}"></script>
-
   <script src="{{asset "main/js/infinite.js"}}"></script>
+  <script type="text/javascript">
+    $(".slider").slick({
+      // normal options...
+      infinite: true,
+      lazyLoad: 'ondemand',
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      responsive: [{
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          infinite: true
+        }
+      }, {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          dots: true
+        }
+      }, {
+        breakpoint: 400,
+        settings: "unslick" // destroys slick
+      }]
+    }); 
+  </script>
 
   {{!-- Ghost outputs important scripts & data with the {ghost_foot} tag
   it should always be the very last thing before the closing body tag --}}
