@@ -34,7 +34,7 @@
 			;
 
 	var bookmarkSection={
-		e:$('<section class="bookmark-box"><header class="major"><h2>Bookmarks</h2></header><div class="mini-posts"></div></section>'),
+		e:$('<section class="bookmark-box"><h2 class="title">Bookmarks</h2><div class="mini-posts"></div></section>'),
 		s:'.bookmark-box .mini-posts',
 		create:function(){
 			if( $(this.s).length == 0 )
@@ -50,7 +50,7 @@
 					to.append(html);
 				})
 			} else {
-				var html='<span>You added no bookmarks still</span>';
+				var html='<span>You added no bookmarks yet</span>';
 				to.append(html);
 			}
 		}

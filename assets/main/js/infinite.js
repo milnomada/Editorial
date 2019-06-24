@@ -1,4 +1,4 @@
-$().ready(function () {
+$(document).ready(function(){
   var page = 2;
   var url_blog = window.location.href;
   
@@ -44,4 +44,7 @@ $().ready(function () {
       }
     }
   });
+  
+  /* */
 });
+
