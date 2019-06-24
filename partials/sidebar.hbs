@@ -1,47 +1,39 @@
 <div id="sidebar">
 	<div class="inner">
-
-
-
 		{{!-- Search bar --}}
-		
 		<header class="search">
 			<h2>Search</h2>
 			<span>for any article in the site</span>
 			<div class="search-bar"><input id="ghost-search-field" /><i class="icon fa-close"></i></div>
 		</header>
 
+		{{!-- Tags or Sections --}}
+		<section>
+			<h2 class="title">Sections</h2>
+			<div class="mini-posts">
+				{{#get "tags" limit="all" include="count.posts" order="count.posts desc"}}
+				{{#foreach tags}}
+					<a href="/tag/{{slug}}" title="{{name}}" class="box-tag tag-{{id}} {{slug}}">{{name}} <small>({{ count.posts }})</small></a>
+				{{/foreach}}
+				{{/get}}
+			</div>
+		</section>
+		<section>
 		{{#get "posts" limit="4" filter="tag:hash-most-visited" include="tags" as |similar|}}
-		<header class="major">
-			<h3>Most Visited</h3>
-		</header>
-	  <section class="mini-posts">
+		<h2 class="title">Most Visited</h2>
+	  <div class="mini-posts">
 	    {{#foreach similar}}
 	    <article>
 				<h3><a href="{{url}}">{{title}}</a></h3>
 				<p>{{excerpt words="15"}}</p>
 			</article>
 	    {{/foreach}}
-	  </section>
+	  </div>
 	  {{else}}
 	  <p>Few posts should appear here</p>
-	  {{/get}}
-
-		{{!-- Tags or Sections --}}
-		<section>
-			<header class="major">
-				<h2>Sections</h2>
-			</header>
-			<div class="mini-posts">
-				{{#get "tags" limit="all" include="count.posts" order="count.posts desc"}}
-				{{#foreach tags}}
-					<a href='/tag/{{ slug }}'>
-					<h3>{{ name }} <small>({{ count.posts }})</small></h3>
-					</a>
-				{{/foreach}}
-				{{/get}}
-			</div>
+		{{/get}}
 		</section>
+		
 
 		{{!-- Do not show recent posts in home page. Which already shows recent posts --}}
 		{{#is "home"}}

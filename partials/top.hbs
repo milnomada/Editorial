@@ -1,0 +1,44 @@
+<div id="top" style="background-image:url({{@site.cover_image}})">
+	{{!-- Header --}}
+  <header id="header">
+    {{!-- Nav - partials/navigation.hbs --}}
+    {{#if @site.navigation}}
+      {{navigation}}
+    {{/if}}
+  </header>
+	<div class="header">
+	</div>
+	<div class="live-wrapper">
+		<div class="live">
+			<div class="live-box">
+				Latest Articles
+			</div>
+			<div class="slider-box">
+				<div class="slider">
+					{{#get "posts" limit="7" filter="tag:hash-most-visited" include="tags" as |similar|}}
+					    {{#foreach similar}}
+					    <div class="slide">
+					    	<!-- {{#if feature_image}}
+		            	<a href="{{url}}" class="image"><img src="{{img_url feature_image}}" alt="{{title}}" /></a>
+		            {{/if}} -->
+		            {{#if tags}}
+			            {{#foreach tags}}
+			            	{{#if (compare @index 0) }}
+						        	<a href="/tag/{{slug}}" title="{{name}}" class="box-tag tag-{{id}} {{slug}}">{{name}}</a>
+						        {{/if}}
+							    {{/foreach}}
+						    {{/if}}
+						    <span class="date">{{date format="MMMM D, YYYY"}}</span>
+								<h3><a href="{{url}}">{{title}}</a></h3>
+								
+								<!-- <p>{{excerpt words="15"}}</p> -->
+							</div>
+					    {{/foreach}}
+					  {{else}}
+					  <p>Few posts should appear here</p>
+				  {{/get}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
