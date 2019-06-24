@@ -3,6 +3,9 @@
 		min-height: 28vh;
 		margin-bottom: 3.5em;
 	}
+	.posts article {
+    width: calc(50% - 2em);
+	}
 	.posts article.small {
     width: calc(25% - 2em);
   }
@@ -19,6 +22,9 @@
 @media screen and (max-width: 1680px) {
 	#main {
 	 	width: calc(75% - 24em);
+	}
+	.posts article {
+    width: calc(50% - 2em);
 	}
 	.posts article.small {
     margin-bottom: 2em;
