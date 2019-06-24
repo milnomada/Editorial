@@ -479,9 +479,9 @@ article.small a.more  {
   width: auto;
 }
 .slide h3 {
-  font-size: 1em;
-  overflow: hidden;
-  height: 2.5em;
+  font-size: .9em;
+  overflow-y: hidden;
+  height: 2.2em;
   margin: 0 0 0 5px;
   width: 64%;
   line-height: 1.1em;
@@ -503,6 +503,7 @@ article.small a.more  {
   overflow-wrap: break-word;
   max-width: 30%;
   overflow-x: hidden;
+  word-break: break-all;
 }
 .slide .date {
   font-size: 0.6em;

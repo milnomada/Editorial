@@ -4,7 +4,7 @@
 		margin-bottom: 3.5em;
 	}
 	.posts article.small {
-    width: calc(25% - 6em);
+    width: calc(25% - 2em);
   }
   .similar.posts article.small {
     width: calc(25% - 3em);
@@ -22,7 +22,7 @@
 	}
 	.posts article.small {
     margin-bottom: 2em;
-    width: calc(25% - 6em);
+    width: calc(25% - 2em);
   }
   #sidebar .toggle {
   	left: 24.5em;
