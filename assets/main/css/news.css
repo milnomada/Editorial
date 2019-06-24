@@ -64,6 +64,15 @@ body {
   margin-right: 10px;
   color: #fff;
 }
+p.soon {
+  background-color: #eee;
+  padding: 1.625em;
+  cursor: default;
+}
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+}
 
 /* Site header */
 #top {
@@ -621,7 +630,6 @@ article.small a.more  {
 }
 .post-full-title {
   font-size: 3em;
-  padding-top: 1em;
   text-transform: capitalize;
 }
 #main>.inner {
@@ -631,7 +639,7 @@ article.small a.more  {
   border-top: none;
 }
 #main>.inner>section:first-of-type {
-  padding: 3em 0 3em 0;
+  padding: 0em 0 0em 0;
 }
 #sidebar .inner {
   padding-top: 4em;
