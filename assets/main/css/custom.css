@@ -2,42 +2,7 @@
 html{
 	scroll-behavior: smooth;
 }
-.k-nav {
-	position: relative;
-}
-.k-nav #menu>ul>li:first-child,
-.k-nav #menu > ul > li {
-	display: inline-block;
-	border-top: none;
-	
-	margin: 0;
-  padding: 0.5em 0 0 0;
-}
-.k-nav #menu>ul>li:first-child a {
-	padding-left: 0.125em;
-}
-.k-nav #menu > ul > li a {
-	padding: 0.325em 1.125em;
-}
 
-.k-nav #menu > ul > li:not(:first-child) a {
-	border-left: solid 1px rgba(210,215,217,0.75);
-}
-
-.k-nav #menu {
-	display: inline-block;
-}
-.k-nav #menu > ul > li:last-child {
-	border-right: none;
-}
-.k-nav .icons {
-	display: inline-block;
-	margin-bottom: 0;
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	margin-right: 10px;
-}
 .icons img.icon {
 	display: inline-block;
 	height: 1em;
@@ -72,7 +37,6 @@ a.disabled {
   pointer-events: none;
   cursor: default;
 }
-
 .settings {
 	position: relative;
 	
@@ -281,112 +245,7 @@ noscript .content .close {
 }
 
 
-/** K Hacks */
 
-.posts article.k {
-  width: calc(100% - 6em);
-  display: flex;
-  margin: 0 0 2em 6em;
-  border-bottom: 1px solid #eee;
-}
-
-.posts article.k:last-child {
-	border-bottom: none;
-}
-
-.posts article.k a.image {
-	width: 15%;
-	display: inline-block;
-}
-.posts article.k p {
-	width: 100%;
-	display: block;
-	font-size: 0.9em;
-	margin: 0 0 1em 0;
-}
-
-.posts article.k h3 {
-	font-size: 1.1em;
-	margin: 0 0 0.3em 0;
-}
-
-.posts article.k .date {
-	font-family: "Roboto Slab",serif;
-	font-size: .8em;
-}
-
-.posts article.k .actions a {
-	font-size: .9em;
-	border-bottom: none;
-}
-
-.posts article.k.inf {
-	text-align: center;
-	justify-content: center;
-}
-.posts article.k.inf span {
-	width: 100px;
-	height: 100px;
-	display: block;
-	background-image: url(/assets/images/lo.gif);
-	background-repeat:  no-repeat;
-	background-size: 100% 100%;
-	background-position: 0 0;
-}
-
-.posts article.k::after,
-.posts article.k::before {
-	display: none;
-}
-
-.k .kc {
-	display: inline-block;
-	flex: 1;
-	padding: 0em 1em;
-}
-
-/* posts display overrides */
-
-.posts article.small:before{
-  height: calc(100% + 0em);
-}
-.posts article.small:nth-child(2n):before{display:block}
-.posts article.small:nth-child(2n+1):before{display:block}
-.posts article.small:nth-child(3n+1):before{display:block}
-.posts article.small:nth-child(4n+1):before{display:none}
-.posts article.small:first-child:before{display:none}
-.posts article.small:after{display:none;}
-.posts article.small {
-	min-height: 375px;
-}
-.posts article.small a.frame {
-  max-height: 138px;
-}
-
-.similar.posts article.small:before{display:none;}
-.similar.posts article.small:after{display:none;}
-.similar.posts article.small {
-	margin: 0 0 3em 3em;
-	min-height: 250px;
-}
-
-article.small h3 {
-	font-size: 0.9em;
-}
-article.small p {
-	font-size: 0.85em;
-	margin: 0 0 1em 0;
-}
-article.small a.more  {
-	font-size: 0.85em;
-}
-
-.tag-header  {
-	padding: 0em 0 1em 0;
-}
-.tag-header h1 {
-  font-size: 1.66em;
-}
 
 /* custom media queries */
 

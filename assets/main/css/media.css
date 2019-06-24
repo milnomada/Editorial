@@ -1,0 +1,271 @@
+@media screen and (min-width: 1680px) {
+	#feat {
+		min-height: 28vh;
+		margin-bottom: 3.5em;
+	}
+	.posts article.small {
+    width: calc(25% - 6em);
+  }
+  .similar.posts article.small {
+    width: calc(25% - 3em);
+  }
+  #main>.inner>section {
+    padding: 0em 0 3em 0;
+	}
+	.tag-header {
+	  margin-bottom: 3em;
+	}
+}
+@media screen and (max-width: 1680px) {
+	#main {
+	 	width: calc(75% - 24em);
+	}
+	.posts article.small {
+    margin-bottom: 2em;
+    width: calc(25% - 6em);
+  }
+  #sidebar .toggle {
+  	left: 24.5em;
+  	top: -0.45em;
+  }
+  #main>.inner>section {
+    padding: 3em 0 3em 0;
+	}
+}
+@media screen and (max-width: 1280px) {
+	#feat {
+		min-height: 28vh;
+		margin-bottom: 2em;
+	}
+	.posts article.small {
+    margin-bottom: 2em;
+  }
+  #top .live-box {
+		width: 15%;
+		line-height: 1.1em;
+		font-size: 1.3em;
+	}
+	#top .slider-box {
+	  width:calc(100% - 15%);
+	}
+  #over-wrap { 
+		padding: 0;
+	}
+	.k-nav #menu .icon {
+		display: none;
+	}
+	#menu ul.links {
+		margin-left: 4em;
+	}
+}
+@media screen and (max-width: 736px) {
+	#feat {
+		min-height: auto;
+		margin-bottom: 2.5em;
+	}
+	.k-nav #menu .icon {
+		display: none;
+	}
+	#top {
+	  flex: 0 0 100%;
+	  background-size: 100% 100%;
+	  background-repeat: no-repeat;
+	}
+	#top .live-box {
+		width: 25%;
+		font-size: 1.3em;
+	}
+	#top .slider-box {
+	  width:calc(100% - 25%);
+	}
+	#menu ul.links {
+		margin-left: 6em;
+	}
+	.k-nav #menu .icon {
+		display: none;
+	}
+	#menu ul.links li:first-child{
+		display: block;
+	}
+	#menu ul.links li:nth-of-type(2) a {
+		border-left: none; 
+	}
+	#header .icons {
+    height: 5em;
+    line-height: 6em;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: unset;
+    bottom: 0;
+	}
+	#over-wrap { 
+		padding: 0;
+	}
+
+	#header {
+		padding: 0em 1em 0.6em 1em;
+	}
+	#header .k-logo {
+		text-align: center;
+	}
+	.posts article.small {
+    width: calc(50% - 5em);
+	}
+	.similar.posts article.small {
+    width: calc(50% - 3em);
+  }
+}
+@media screen and (max-width: 480px){
+	#main {
+	 	width: auto;
+	}
+	#feat {
+		height: 225px;
+		width: 100%;
+		margin-bottom: 2em;
+	}
+	.flex-wrapper {
+		width: 100%;
+	}
+	#featured {
+  	width: 100%;
+  	margin-bottom: 2em;
+  	height: 490px;
+  }
+	#top {
+	  flex: 0 0 100%;
+	  background-size: 100% 100%;
+	  background-repeat: no-repeat;
+	}
+	#top .live-box {
+		width: 25%;
+		line-height: 1.1em;
+		font-size: 1.3em;
+	}
+	#top .slider-box {
+	  width:calc(100% - 25%);
+	}
+	.slider-box .box-tag {
+		margin-top: 0.85em;
+	}
+	.k-nav #menu .icon {
+		display: none;
+	}
+	#menu ul.links {
+		margin-left: 6em;
+	}
+	#menu ul.links li:first-child{
+		display: block;
+	}
+	#menu ul.links li:nth-of-type(2) a {
+		border-left: none;
+	}
+	#over-wrap { 
+		padding: 0;
+	}
+	#main>.inner {
+	  padding: 2em 2em .1em 2em;
+	}
+	#header {
+		padding: 0em 1em 0.6em 1em;
+	}
+	#header .k-logo {
+		text-align: center;
+	}
+	.posts article.small {
+    width: calc(50% - 1em);
+    
+	}
+	.posts article.small:nth-child(2n) {
+		margin-left: 1em;
+	}
+	.posts article.small:nth-child(2n):before {
+    display: none;
+	}
+
+	.posts article.k {
+    margin: 0 0 1em 0em;
+    width: calc(100%);
+	}
+	.posts article.k a.image {
+    width: 30%;
+  }
+  #banner {
+	  padding: 2em 0 3em 0;
+	  margin-bottom: 3em;
+	}
+	.author-header {
+	}
+	#footer > div > div {
+		width: calc(50% + 0em);
+	}
+}
+@media screen and (max-width: 360px){
+	#main {
+	 	width: auto;
+	}
+	#feat {
+		height: 225px;
+		width: 100%;
+		margin-bottom: 2em;
+	}
+	.flex-wrapper {
+		width: 100%;
+	}
+	#featured {
+  	width: 100%;
+  	margin-bottom: 2em;
+  	height: 490px;
+  }
+	#top {
+	  flex: 0 0 100%;
+	  background-size: 100% 100%;
+	  background-repeat: no-repeat;
+	}
+	#top .live-box {
+		width: 25%;
+		line-height: 1.1em;
+		font-size: 1.3em;
+	}
+	#top .slider-box {
+	  width:calc(100% - 25%);
+	}
+	.k-nav #menu .icon {
+		display: none;
+	}
+	#menu ul.links {
+		margin-left: 6em;
+	}
+	#menu ul.links li:first-child{
+		display: block;
+	}
+	#menu ul.links li:nth-of-type(2) a {
+		border-left: none;
+	}
+
+	#over-wrap { 
+		padding: 0;
+	}
+	#main>.inner {
+	  padding: 0 2em .1em 2em;
+	}
+	#header {
+		padding: 0em 1em 0.6em 1em;
+	}
+	#header .k-logo {
+		text-align: center;
+	}
+	.posts article.k {
+    margin: 0 0 1em 0em;
+    width: calc(100%);
+	}
+	.posts article.k a.image {
+    width: 30%;
+  }
+  .author-header {
+	}
+	#footer > div > div {
+		width: calc(50% + 0em);
+	}
+}
