@@ -26,6 +26,21 @@ Search results dissapear as the search inputs gets empty.
 Similar posts feature has been added by default.  
 Those can be seen in post page `post.hbs` and the newly added `page-section.hbs` where few posts about each seaction are shown.  
 
+## Extend @config
+
+Add the new key to allowed_keys in the following file of the ghost distribution: `core/server/services/themes/config/index.js`
+
+
+```allowedKeys = ['posts_per_page', 'image_sizes' , 'img_bucket'];
+```
+
+Then allow the getter for the new key in:
+`core/server/services/themes/middleware.js`
+
+```themeData.img_bucket = activeTheme.get().config('img_bucket');
+``
+
+
 **The new files are:**
 
 - `partials/search.hbs` - The search results view
