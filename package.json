@@ -58,6 +58,7 @@
   },
   "config": {
     "posts_per_page": 18,
-    "img_bucket":"http://localhost:1090"
+    "img_bucket":"http://localhost:1090",
+    "cover_image":"/content/images/2019/06/forest.jpg"
   }
 }
