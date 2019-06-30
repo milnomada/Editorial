@@ -67,7 +67,6 @@
   <script src="{{asset "main/js/infinite.js"}}"></script>
   <script type="text/javascript">
     $(".slider").slick({
-      // normal options...
       infinite: true,
       lazyLoad: 'ondemand',
       slidesToShow: 4,
@@ -88,6 +87,10 @@
         }
       }, {
         breakpoint: 400,
+        slidesToShow: 1,
+        settings: "unslick" // destroys slick
+      },{
+        breakpoint: 320,
         settings: "unslick" // destroys slick
       }]
     }); 
