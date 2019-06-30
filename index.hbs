@@ -69,7 +69,7 @@ into the {body} of the default.hbs template --}}
 {{/is}}
 
 {{!-- Random Section --}}
-{{#get "tags" limit="2" order="published_at desc"}}
+{{#get "tags" limit="2" order="created_at desc"}}
 <section>
   {{#foreach tags}}
     <h2 class="title mid">{{name}}</h2>

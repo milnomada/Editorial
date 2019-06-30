@@ -235,6 +235,7 @@ ul.actions {
 }
 #feat img, #featured img {
   margin: 0 auto;
+  height: 100%;
 }
 .flex-wrapper {
   display: inline-block;
