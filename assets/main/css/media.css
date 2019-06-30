@@ -117,16 +117,20 @@
 	#header .k-logo {
 		text-align: center;
 	}
+	.posts {
+	    margin: 0 0 2em 0em;
+	    width: calc(100%);
+	}
 	.posts article.small {
     width: calc(50% - 5em);
 	}
 	.similar.posts article.small {
-    width: calc(50% - 3em);
+    width: calc(50% - 2em);
   }
 }
 @media screen and (max-width: 480px){
 	#main {
-	 	width: auto;
+	 	width: 100%;
 	}
 	#feat {
 		height: 225px;
@@ -211,7 +215,7 @@
 }
 @media screen and (max-width: 360px){
 	#main {
-	 	width: auto;
+	 	width: 100%;
 	}
 	#feat {
 		height: 225px;
