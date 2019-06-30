@@ -10,7 +10,8 @@
     width: calc(25% - 2em);
   }
   .similar.posts article.small {
-    width: calc(25% - 3em);
+    width: calc(25% - 2em);
+    margin: 0 0 2em 2em;
   }
   #main>.inner>section {
     padding: 0em 0 3em 0;
@@ -29,6 +30,7 @@
 	.posts article.small {
     margin-bottom: 2em;
     width: calc(25% - 2em);
+    margin: 0 0 2em 2em;
   }
   #sidebar .toggle {
   	left: 24.5em;

@@ -114,7 +114,6 @@ a.disabled {
 }
 
 article .actions {
-
 }
 
 /*------------------------------------
@@ -450,6 +449,34 @@ article.small a.more  {
 .tag-header h1 {
   font-size: 1.66em;
 }
+
+/*-----------------------
+  author box
+  -------------------------*/
+.author-box {
+  position: relative;
+  cursor: default;
+}
+.author-box a.ln {
+  border-bottom: none;
+}
+.author-box a.tag {
+  display: inline-block;
+}
+.author-box .icons {
+  position: absolute;
+  right: 20px;
+}
+.author-box:hover {
+  color: inherit!important;
+}
+.author-box-content {
+  display: block;
+}
+.author-box-content .sep:last-child {
+  display: none;
+}
+
 /* end k-hacks */
 
 
@@ -698,6 +725,10 @@ h2.mid {
 }
 #footer .copy a {
 	color:inherit
+}
+.post-footer {
+  margin: 2.5rem auto 0;
+  max-width: 700px;
 }
 .copyleft {
   display:inline-block;
