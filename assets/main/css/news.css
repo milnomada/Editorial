@@ -119,7 +119,7 @@ article .actions {
 /* for reference links to be inside the box */
 .content > ul > li > a {
   width: 100%;
-  display: block;
+  display: inline;
   word-break: break-all;
   border-bottom: none;
 }

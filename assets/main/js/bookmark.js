@@ -28,10 +28,12 @@
  */
 (function($) {
 
-	var hbs_handler='a[data-elem="book-mark"]',
-			s_handler='img.share',
-			view_handler='.settings .icons a'
-			;
+	var 
+		hbs_handler='a[data-elem="book-mark"]',
+		s_handler='img.share',
+		view_handler='.settings .icons a',
+		top='#top'
+		;
 
 	var bookmarkSection={
 		e:$('<section class="bookmark-box"><h2 class="title">Bookmarks</h2><div class="mini-posts"></div></section>'),
@@ -45,7 +47,7 @@
 			to.html("");
 			if(ls.length > 0) {
 				ls.map(function(e, i){
-					console.log(e);
+					// console.log(e);
 					var html='<div class="bm"><span class="date">'+ (new Date(e.add)).toDateString() +'</span></br><a class="ln" href="'+e.url+'"><small>'+e.name+'</small></a></div>';
 					to.append(html);
 				})
@@ -56,6 +58,10 @@
 		}
 	};
 
+	/**
+	 * cookieMonster is a base class for cookie management
+	 * Provides save, get ports to the Cookies library
+	 */
 	class cookieMonster {
 
 		constructor(name) {
@@ -66,22 +72,16 @@
 
 		get(){
 			var c=Cookies.get(this.name);
-			if(c)
-				return JSON.parse(c);
-			else
-				return null;
+			return c ? JSON.parse(c) : null
 		}
 
 		save(){
 			Cookies.set(this.name, JSON.stringify(this.c), this.dur);
-			console.log(this.c)
 		}
 	};
 
 	class BC extends cookieMonster {
 
-		// constructor(){} inherited 
-		
 		check(){
 			var cookie=super.get();
 			if(!cookie){
@@ -89,7 +89,7 @@
 				super.save();
 			} else {
 				this.c = cookie
-				console.log(this.c)
+				//console.log(this.c)
 				var li;
 				for(var i in this.c.links) {
 					li=this.c.links[i]
@@ -116,7 +116,7 @@
 				if(li.url != link)
 					this.c.links.push(li)
 			}
-			console.log(JSON.stringify(this.c))
+			//console.log(JSON.stringify(this.c))
 			super.save();
 		}
 
@@ -134,7 +134,7 @@
 				Cookies.set(this.name, JSON.stringify(this.c), this.dur);
 			} else {
 				this.c = cookie;
-				console.log(this.c);
+				//console.log(this.c);
 				post_class=this.c.status == 'list' ? 'k' : '' ;
 				this.update_view(post_class=='k');
 			}
@@ -161,22 +161,68 @@
 		}
 	};
 
+	class ImgC extends cookieMonster {
+
+		check(){
+			var cookie=super.get();
+			var _this = this;
+			if(!cookie){
+				console.log(_this);
+				$.ajax({
+					url:"https://iis.articlefeed.org/image?v=json", 
+					dataType:'json',
+					method: 'GET',
+					success: function(data){
+						console.log(data)
+						_this.save({'img': data.url, 'ts': new Date().getTime() / 1000})
+						_this.update_view()
+					}
+				})
+			} else {
+				this.c = cookie;
+				if(this.c.ts + 3600 < new Date().getTime() / 1000) {
+					$.ajax({
+						url:"https://iis.articlefeed.org/image?v=json", 
+						dataType:'json',
+						method: 'GET',
+						success: function(data){
+							console.log(data)
+							_this.c = {'img': data.url, 'ts': new Date().getTime() / 1000}
+							Cookies.set(_this.name, JSON.stringify(_this.c), _this.dur);
+							_this.update_view()
+						}
+					})
+				} else {
+					this.update_view()
+				}
+			}
+		}
+
+		save(status){
+			this.c=status
+			super.save()
+		}
+
+		update_view() {
+			$(top).css({"background-image":"url("+this.c.img+"?t="+this.c.ts+")"})
+		}
+	};
+
 	var	$window = $(window),
 		$head = $('head'),
 		$body = $('body'),
 		bcm = new BC('tafbmkc'),
-		vcm = new VC('tafvc')
+		vcm = new VC('tafvc'),
+		icm = new ImgC('imgc')
 		;
 
+	icm.check();
 	bookmarkSection.create();
 	vcm.check();
 
 	$window.on('load', function() {
 		var elems = $('a[data-elem="book-mark"]');
-		console.log(elems);
-		console.log("Found " + elems + " in this page");
 		bcm.check();
-
 		bookmarkSection.load(bcm);
 	});
 
