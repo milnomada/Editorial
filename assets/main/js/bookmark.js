@@ -4,9 +4,7 @@
   Adds a font-awesome bookmart at the top right of the post area.
 
   Needs custom.css file to be in the project theme/assets too. 
-
-  Author: <karlos@milnomada.io>
-  Version: 0.2
+  Version: 0.3
 
   0.1
   ---
@@ -49,7 +47,7 @@
     }
   }
 
-  defaultImageSrv = getSrc()
+  defaultImageSrv = getSrc();
 
   var bookmarkSection = {
     e: $('<section class="bookmark-box"><h2 class="title">Bookmarks</h2><div class="mini-posts"></div></section>'),
@@ -74,15 +72,15 @@
     }
   };
 
-  var imgActions={
+  var imgActions = {
     start: '<ul class="icons">',
     buttons: { 
       'refresh': '<li><i class="fa fa-refresh new-image"></i></li>',
-      'link': '<li><a target="_blank"><i class="fa fa-external-link"></i></a></li>',
+      'link': '<li><a target="_blank"><i class="fa fa-external-link"></i></a></li>'
     },
     end: '</ul>',
 
-    get: function(buttonOpts=[]) {
+    get: function(buttonOpts) {
       var s = this.start
 
       for(var i in buttonOpts){
@@ -95,17 +93,35 @@
           } break;
         }
       }
-      s += this.end
-      return s
+      s += this.end;
+      return s;
     } 
-  }
+  };
 
   /**
    * cookieMonster
    * base class for cookie management
    * Provides save, get ports to the Cookies library
    */
-  class cookieMonster {
+
+  /* prototype version
+    function cookieMonster(name){
+      this.c = null;
+      this.dur = { expires: 365 };
+      this.name = name
+    }
+
+    cookieMonster.prototype.get = function(){
+      var c=Cookies.get(this.name);
+      return c ? JSON.parse(c) : null
+    }
+
+    cookieMonster.prototype.save = function(){
+      Cookies.set(this.name, JSON.stringify(this.c), this.dur);
+    }
+   */
+   
+  class cookieMonster() {
 
     constructor(name) {
       this.c = null;
@@ -254,12 +270,11 @@
       var _this = this,
           bgImg = new Image();
 
-      console.log("update",Date.now())
+      // console.log("update",Date.now())
       bgImg.src = _this.c.img;
-      console.log(bgImg)
 
       bgImg.onload = function(){
-        console.log("loaded", Date.now())
+        // console.log("loaded", Date.now())
         $(top).css({"background-image":"url("+bgImg.src+"?t="+_this.c.ts+")"});
         setTimeout(function(){
           $(imgRefresh).removeClass("fa-spin");}, 400);
@@ -302,7 +317,6 @@
     var elems = $('a[data-elem="book-mark"]');
     bcm.check();
     bookmarkSection.load(bcm);
-    console.log(myheader)
     $(myheader).append(imgActions.get(['refresh']))
   });
 
