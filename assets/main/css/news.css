@@ -351,6 +351,7 @@ ul.actions {
 }
 .settings .icons {
   position: absolute;
+  z-index: 5;
   right: 0;
   top: 0;
 }
@@ -383,7 +384,7 @@ ul.actions {
   display: inline-block;
   padding-left: 0.125em;
 }
-.taglist li a {
+.content ul.taglist li > a {
   display: inline;
 }
 .taglist li:first-child {

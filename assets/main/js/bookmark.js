@@ -20,7 +20,7 @@
   + Add sharer method for social
   + Add cookieMonster as base cookie class
   + Add bookmark feature as BC
-  + Add View feature VC
+  + Add View feature ViewC
 
   Changes 0.3
   -----------
@@ -306,14 +306,34 @@
     $(myheader).append(imgActions.get(['refresh']))
   });
 
+  var refresh = {
+    category: 'interaction',
+    action: 'click',
+    label: 'refreshImage',
+    value: 1
+  }
+
   // click handlers
   $('#top').on('click', imgRefresh, function(e){
     $(imgRefresh).addClass("fa-spin")
+    ga('send', 
+        'event', 
+        refresh.category, 
+        refresh.action, 
+        refresh.label, refresh.value, null);
     icm.check(true)
   })
 
+  var bookmark = {
+    category: 'interaction',
+    action: 'click',
+    label: 'bookmark',
+    value: 1
+  }
+
   $(hbs_handler).on('click', function(e){
-    console.log(window.location, $(e.target).hasClass("active"), e.target);
+    // console.log(window.location, $(e.target).hasClass("active"), e.target);
+
     if( $(e.target).hasClass("active") ){
       bcm.remove(window.location.href);
       bookmarkSection.load(bcm);
@@ -321,6 +341,12 @@
       $(e.target).attr('title','Save in your collection');
     }
     else {
+      ga('send', 
+        'event', 
+        bookmark.category, 
+        bookmark.action, 
+        bookmark.label, bookmark.value, null);
+
       bcm.save(window.location.href);
       bookmarkSection.load(bcm);
       $(e.target).addClass("active");
