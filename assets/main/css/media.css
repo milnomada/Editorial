@@ -50,6 +50,8 @@
   }
   #top .live-box {
 		width: 15%;
+	}
+	#top .live-box span {
 		line-height: 1.1em;
 		font-size: 1.3em;
 	}
@@ -81,6 +83,8 @@
 	}
 	#top .live-box {
 		width: 25%;
+	}
+	#top .live-box span {
 		font-size: 1.3em;
 	}
 	#top .slider-box {
@@ -152,7 +156,8 @@
 	}
 	#top .live-box {
 		width: 25%;
-		line-height: 1.1em;
+	}
+	#top .live-box span {
 		font-size: 1.3em;
 	}
 	#top .slider-box {
@@ -237,7 +242,8 @@
 	}
 	#top .live-box {
 		width: 25%;
-		line-height: 1.1em;
+	}
+	#top .live-box span {
 		font-size: 1.3em;
 	}
 	#top .slider-box {
