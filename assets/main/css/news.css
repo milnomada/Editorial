@@ -96,8 +96,9 @@ a.disabled {
   border-bottom: none;
 }
 #top .header .icons li i {
-  color: #ccc;
+  color: #fff;
   transition: .2s;
+  text-shadow: 1px 1px 2px #00000055;
 }
 #top .header .icons li i:hover {
   color: #fff;

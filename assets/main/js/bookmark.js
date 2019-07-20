@@ -30,6 +30,7 @@
 (function($) {
 
   var 
+    wlh=window.location.href,
     hbs_handler='a[data-elem="book-mark"]',
     s_handler='img.share',
     view_handler='.settings .icons a',
@@ -37,18 +38,28 @@
     myheader='#top .header',
     imgRefresh='.new-image',
     defaultImage = '/content/images/2019/06/forest.jpg',
-    defaultImageSrv = 'http://localhost:5000/image?v=json' // url = "https://iis.articlefeed.org/image?v=json"
+    defaultImageSrv
     ;
 
-  var bookmarkSection={
-    e:$('<section class="bookmark-box"><h2 class="title">Bookmarks</h2><div class="mini-posts"></div></section>'),
-    s:'.bookmark-box .mini-posts',
-    create:function(){
+  var getSrc = function(){
+    if(wlh.indexOf('localhost') == -1) {
+      return 'https://iis.articlefeed.org/image?v=json'
+    } else {
+      return 'http://localhost:5000/image?v=json'
+    }
+  }
+
+  defaultImageSrv = getSrc()
+
+  var bookmarkSection = {
+    e: $('<section class="bookmark-box"><h2 class="title">Bookmarks</h2><div class="mini-posts"></div></section>'),
+    s: '.bookmark-box .mini-posts',
+    create: function(){
       if($(this.s).length == 0)
         $(this.e).insertAfter('#sidebar .search')
     },
-    load:function(cm){
-      var to=$(this.s), ls=cm.list();
+    load: function(cm){
+      var to = $(this.s), ls=cm.list();
       to.html("");
       if(ls.length > 0) {
         ls.map(function(e, i){
@@ -64,19 +75,28 @@
   };
 
   var imgActions={
-    // '<ul class="icons">'+
+    start: '<ul class="icons">',
     buttons: { 
       'refresh': '<li><i class="fa fa-refresh new-image"></i></li>',
-      'link': '<li><a target="_blank"><i class="fa fa-external-link"></i></a></li>'+
-    '</ul>',
+      'link': '<li><a target="_blank"><i class="fa fa-external-link"></i></a></li>',
+    },
+    end: '</ul>',
 
     get: function(buttonOpts=[]) {
+      var s = this.start
+
       for(var i in buttonOpts){
         switch(buttonOpts[i]){ 
-          case 'refresh': {}
-          case 'link': {}
+          case 'refresh': {
+            s += this.buttons[buttonOpts[i]]
+          } break;
+          case 'link': {
+            s += this.buttons[buttonOpts[i]]
+          } break;
         }
       }
+      s += this.end
+      return s
     } 
   }
 
@@ -230,13 +250,40 @@
     }
 
     update_view(data) {
-      $(top).css({"background-image":"url("+this.c.img+"?t="+this.c.ts+")"})
-      $(imgRefresh).removeClass("fa-spin")
+      
+      var _this = this,
+          bgImg = new Image();
+
+      console.log("update",Date.now())
+      bgImg.src = _this.c.img;
+      console.log(bgImg)
+
+      bgImg.onload = function(){
+        console.log("loaded", Date.now())
+        $(top).css({"background-image":"url("+bgImg.src+"?t="+_this.c.ts+")"});
+        setTimeout(function(){
+          $(imgRefresh).removeClass("fa-spin");}, 400);
+      };
+      
     }
   };
 
+  var sharer=function(){
+    if( $('a.fa-facebook').length == 0)
+      return;
+
+    var 
+      ep_fb="https://www.facebook.com/share.php",
+      ep_tw="https://twitter.com/intent/tweet",
+      fb_url=ep_fb+'?u='+window.location,
+      tw_url=ep_tw+'?url='+window.location+'&text='+$('h1').html().replace(/ /g, '+');
+
+    $('a.fa-facebook').attr('href', fb_url);
+    $('a.fa-twitter').attr('href', tw_url);
+  }
 
 
+  // load classes
   var $window = $(window),
     $head = $('head'),
     $body = $('body'),
@@ -245,22 +292,25 @@
     icm = new ImgC('imgc')
     ;
 
-  $('#top').on('click', imgRefresh, function(e){
-    $(imgRefresh).addClass("fa-spin")
-    icm.check(true)
-  })
-
+  // startup checks
   icm.check();
   bookmarkSection.create();
   vcm.check();
+  sharer();
 
   $window.on('load', function() {
     var elems = $('a[data-elem="book-mark"]');
     bcm.check();
     bookmarkSection.load(bcm);
     console.log(myheader)
-    $(myheader).append(imgActions.buttons)
+    $(myheader).append(imgActions.get(['refresh']))
   });
+
+  // click handlers
+  $('#top').on('click', imgRefresh, function(e){
+    $(imgRefresh).addClass("fa-spin")
+    icm.check(true)
+  })
 
   $(hbs_handler).on('click', function(e){
     console.log(window.location, $(e.target).hasClass("active"), e.target);
@@ -277,22 +327,6 @@
       $(e.target).attr('title','Saved');
     }
   })
-
-  var sharer=function(){
-    if( $('a.fa-facebook').length == 0)
-      return;
-
-    var 
-      ep_fb="https://www.facebook.com/share.php",
-      ep_tw="https://twitter.com/intent/tweet",
-      fb_url=ep_fb+'?u='+window.location,
-      tw_url=ep_tw+'?url='+window.location+'&text='+$('h1').html().replace(/ /g, '+');
-
-    $('a.fa-facebook').attr('href', fb_url);
-    $('a.fa-twitter').attr('href', tw_url);
-  }
-
-  sharer();
 
   $(s_handler).on('click', function(e){
     // console.log(window.location, $(e.target).hasClass("active"), e.target);
@@ -317,7 +351,6 @@
     }
   })
 
-  var wlh=window.location.href;
   if(wlh.indexOf('about')!= -1 || wlh.indexOf('terms')!= -1 ) {
 
     var str=window.location.href.substring( window.location.href.indexOf('#')+1 )
@@ -327,7 +360,6 @@
     $('html, body').animate({
       scrollTop: $(elem).offset().top
     }, { duration:1000, easing:'linear'}); 
-    
   }
 
 })(jQuery);
