@@ -24,11 +24,12 @@
   -----------
   + Add About hash scroll
   + Add flickr js feature
+  + Add default events
  */
 (function($) {
 
   var 
-    wlh=window.location.href,
+    wlh=defaults.currentAddress,
     hbs_handler='a[data-elem="book-mark"]',
     s_handler='img.share',
     view_handler='.settings .icons a',
@@ -275,7 +276,7 @@
     }
   };
 
-  var sharer=function(){
+  var sharer = function(){
     if( $('a.fa-facebook').length == 0)
       return;
 
@@ -288,7 +289,6 @@
     $('a.fa-facebook').attr('href', fb_url);
     $('a.fa-twitter').attr('href', tw_url);
   }
-
 
   // load classes
   var $window = $(window),
@@ -305,6 +305,7 @@
   vcm.check();
   sharer();
 
+  // onload completion
   $window.on('load', function() {
     __ga = new GaSuite();
     var elems = $('a[data-elem="book-mark"]');
@@ -313,10 +314,17 @@
     $(myheader).append(imgActions.get(['refresh']))
   });
 
+  // event declaration
   var refresh = {
     category: 'interaction',
     action: 'click',
     label: 'refreshImage',
+    value: 1
+  }
+  var bookmark = {
+    category: 'interaction',
+    action: 'click',
+    label: 'bookmark',
     value: 1
   }
 
@@ -330,16 +338,7 @@
     icm.check(true)
   })
 
-  var bookmark = {
-    category: 'interaction',
-    action: 'click',
-    label: 'bookmark',
-    value: 1
-  }
-
   $(hbs_handler).on('click', function(e){
-    // console.log(window.location, $(e.target).hasClass("active"), e.target);
-
     if( $(e.target).hasClass("active") ){
       bcm.remove(window.location.href);
       bookmarkSection.load(bcm);
@@ -360,7 +359,6 @@
   })
 
   $(s_handler).on('click', function(e){
-    // console.log(window.location, $(e.target).hasClass("active"), e.target);
     if($(e.target).hasClass('rotate90'))
       $('.layer').animate({left:'0px',opacity:0.5}, 300, function(){ $('.layer').hide() }) //.hide();
     else
@@ -369,7 +367,6 @@
   })
 
   $(view_handler).on('click', function(e){
-    // console.log( $(e.target).attr('data-elem'), $(e.target).hasClass("active"), e.target);
     switch($(e.target).attr('data-elem')) {
       case 'view-grid': {
         vcm.save('grid');
