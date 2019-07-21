@@ -37,8 +37,28 @@
     imgRefresh='.new-image',
     defaultImage = '/content/images/2019/06/forest.jpg',
     defaultImageSrv,
-    tracker = ga.getAll()[0];
+    tracker,
+    gaTimeout = 650
     ;
+
+  var setGa = function(){}
+    if('ga' in window) {
+      tracker = ga.getAll()[0];
+      if(!tracker) {
+        tracker = {
+          send: function(){
+            // fake send
+          }
+        }
+      }
+    } else {
+      setTimeout(function(){
+        tracker = ga.getAll()[0];
+      }, gaTimeout);
+    }
+  } 
+
+  setGa();
 
   var getSrc = function(){
     if(wlh.indexOf('localhost') == -1) {
