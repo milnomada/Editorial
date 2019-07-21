@@ -31,14 +31,16 @@ Those can be seen in post page `post.hbs` and the newly added `page-section.hbs`
 Add the new key to allowed_keys in the following file of the ghost distribution: `core/server/services/themes/config/index.js`
 
 
-```allowedKeys = ['posts_per_page', 'image_sizes' , 'img_bucket'];
+```js
+	allowedKeys = ['posts_per_page', 'image_sizes' , 'img_bucket'];
 ```
 
 Then allow the getter for the new key in:
 `core/server/services/themes/middleware.js`
 
-```themeData.img_bucket = activeTheme.get().config('img_bucket');
-``
+```js 
+	themeData.img_bucket = activeTheme.get().config('img_bucket');
+```
 
 
 **The new files are:**
