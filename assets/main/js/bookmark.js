@@ -35,19 +35,11 @@
     top='#top',
     myheader='#top .header',
     imgRefresh='.new-image',
-    defaultImage = '/content/images/2019/06/forest.jpg',
+    defaultImage = defaults.defaultBgImage,
     defaultImageSrv
     ;
 
-  var getSrc = function(){
-    if(wlh.indexOf('localhost') == -1) {
-      return 'https://iis.articlefeed.org/image?v=json'
-    } else {
-      return 'http://localhost:5000/image?v=json'
-    }
-  }
-
-  defaultImageSrv = getSrc();
+  defaultImageSrv = defaults.getSrc();
 
   var bookmarkSection = {
     e: $('<section class="bookmark-box"><h2 class="title">Bookmarks</h2><div class="mini-posts"></div></section>'),
