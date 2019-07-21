@@ -9,8 +9,6 @@ $(document).ready(function(){
     return;
 
   var loader = $('<article class="k inf"><span class=""></span></article>')
-  // console.log(">>", url_blog)
-
   $(window).scroll(function () {
     var wh = Math.floor($(window).scrollTop() + $(window).height()),
         offset = 250;
@@ -44,7 +42,5 @@ $(document).ready(function(){
       }
     }
   });
-  
-  /* */
 });
 

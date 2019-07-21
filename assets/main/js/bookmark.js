@@ -36,29 +36,8 @@
     myheader='#top .header',
     imgRefresh='.new-image',
     defaultImage = '/content/images/2019/06/forest.jpg',
-    defaultImageSrv,
-    tracker,
-    gaTimeout = 650
+    defaultImageSrv
     ;
-
-  var setGa = function(){}
-    if('ga' in window) {
-      tracker = ga.getAll()[0];
-      if(!tracker) {
-        tracker = {
-          send: function(){
-            // fake send
-          }
-        }
-      }
-    } else {
-      setTimeout(function(){
-        tracker = ga.getAll()[0];
-      }, gaTimeout);
-    }
-  } 
-
-  setGa();
 
   var getSrc = function(){
     if(wlh.indexOf('localhost') == -1) {
@@ -335,6 +314,7 @@
   sharer();
 
   $window.on('load', function() {
+    __ga = new GaSuite();
     var elems = $('a[data-elem="book-mark"]');
     bcm.check();
     bookmarkSection.load(bcm);
@@ -351,8 +331,7 @@
   // click handlers
   $('#top').on('click', imgRefresh, function(e){
     $(imgRefresh).addClass("fa-spin")
-    tracker.send(
-        'event', 
+    __ga.sendEvent(
         refresh.category, 
         refresh.action, 
         refresh.label, refresh.value);
@@ -376,8 +355,7 @@
       $(e.target).attr('title','Save in your collection');
     }
     else {
-      tracker.send(
-        'event', 
+      __ga.sendEvent(
         bookmark.category, 
         bookmark.action, 
         bookmark.label, bookmark.value);
