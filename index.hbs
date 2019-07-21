@@ -68,38 +68,61 @@ into the {body} of the default.hbs template --}}
 </section>
 {{/is}}
 
-{{!-- Random Section --}}
-{{#get "tags" limit="2" filter="slug:[space, philosophy]"}}
+{{!-- Random Section space, philosophy--}}
+{{setvar 'space' 'space'}}
+{{setvar 'philosophy' 'philosophy'}}
 <section>
-  {{#foreach tags}}
-    <h2 class="title mid">{{name}}</h2>
-    {{#get "posts" limit="4" filter="tag:{{slug}}" order="published_at desc" as |category|}}
-      <div class="flex-wrapper category">
-        {{#foreach category}}
-          <article id="feat">
-            <div class="content bbg">
-              <header>
-                <h2><a href="{{url}}">{{title}}</a></h2>
-              </header>
-              {{content words="25"}}
-            </div>
-            {{#if feature_image}}
-            <div class="image object">
-              <img src="{{img_url feature_image}}" alt="{{title}}" />
-            </div>
-            <div class="overlay">
-              <ul class="actions">
-                <li><a href="{{url}}" class="button big">Read More</a></li>
-              </ul>
-            </div>
-            {{/if}}
-          </article>
-        {{/foreach}}
-      </div>
-    {{/get}}
-  {{/foreach}}
+  <h2 class="title mid">{{@root.space}}</h2>
+  {{#get "posts" limit="4" filter="tag:{{space}}" order="published_at desc" as |category|}}
+    <div class="flex-wrapper category">
+      {{#foreach category}}
+        <article id="feat">
+          <div class="content bbg">
+            <header>
+              <h2><a href="{{url}}">{{title}}</a></h2>
+            </header>
+            {{content words="25"}}
+          </div>
+          {{#if feature_image}}
+          <div class="image object">
+            <img src="{{img_url feature_image}}" alt="{{title}}" />
+          </div>
+          <div class="overlay">
+            <ul class="actions">
+              <li><a href="{{url}}" class="button big">Read More</a></li>
+            </ul>
+          </div>
+          {{/if}}
+        </article>
+      {{/foreach}}
+    </div>
+  {{/get}}
+  <h2 class="title mid">{{@root.philosophy}}</h2>
+  {{#get "posts" limit="4" filter="tag:{{philosophy}}" order="published_at desc" as |category|}}
+    <div class="flex-wrapper category">
+      {{#foreach category}}
+        <article id="feat">
+          <div class="content bbg">
+            <header>
+              <h2><a href="{{url}}">{{@root.philosophy}}</a></h2>
+            </header>
+            {{content words="25"}}
+          </div>
+          {{#if feature_image}}
+          <div class="image object">
+            <img src="{{img_url feature_image}}" alt="{{title}}" />
+          </div>
+          <div class="overlay">
+            <ul class="actions">
+              <li><a href="{{url}}" class="button big">Read More</a></li>
+            </ul>
+          </div>
+          {{/if}}
+        </article>
+      {{/foreach}}
+    </div>
+  {{/get}}
 </section>
-{{/get}}
 
 <section>
   <h2 class="title mid">More articles</h2>

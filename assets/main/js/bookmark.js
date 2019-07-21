@@ -329,7 +329,7 @@
   }
 
   // click handlers
-  $('#top').on('click', imgRefresh, function(e){
+  $(top).on('click', imgRefresh, function(e){
     $(imgRefresh).addClass("fa-spin")
     __ga.sendEvent(
         refresh.category, 
