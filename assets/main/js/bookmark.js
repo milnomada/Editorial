@@ -36,7 +36,8 @@
     myheader='#top .header',
     imgRefresh='.new-image',
     defaultImage = '/content/images/2019/06/forest.jpg',
-    defaultImageSrv
+    defaultImageSrv,
+    tracker = ga.getAll()[0];
     ;
 
   var getSrc = function(){
@@ -121,7 +122,7 @@
     }
    */
    
-  class cookieMonster() {
+  class cookieMonster {
 
     constructor(name) {
       this.c = null;
@@ -330,11 +331,11 @@
   // click handlers
   $('#top').on('click', imgRefresh, function(e){
     $(imgRefresh).addClass("fa-spin")
-    ga('send', 
+    tracker.send(
         'event', 
         refresh.category, 
         refresh.action, 
-        refresh.label, refresh.value, null);
+        refresh.label, refresh.value);
     icm.check(true)
   })
 
@@ -355,11 +356,11 @@
       $(e.target).attr('title','Save in your collection');
     }
     else {
-      ga('send', 
+      tracker.send(
         'event', 
         bookmark.category, 
         bookmark.action, 
-        bookmark.label, bookmark.value, null);
+        bookmark.label, bookmark.value);
 
       bcm.save(window.location.href);
       bookmarkSection.load(bcm);
@@ -392,7 +393,6 @@
   })
 
   if(wlh.indexOf('about')!= -1 || wlh.indexOf('terms')!= -1 ) {
-
     var str=window.location.href.substring( window.location.href.indexOf('#')+1 )
     var elem= $( "*[name='"+str.toLowerCase()+"']" )[0];
     if(!elem)
