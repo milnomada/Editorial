@@ -26,8 +26,10 @@
   + Add flickr js feature
   + Add default events
  */
-(function($) {
 
+
+
+(function($) {
   var 
     wlh=defaults.currentAddress,
     hbs_handler='a[data-elem="book-mark"]',

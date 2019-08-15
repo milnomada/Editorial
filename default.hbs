@@ -46,12 +46,22 @@
   
 
   {{!-- Theme Scripts --}}
+  <script type="text/javascript">
+    function loadScriptSync(src) {
+      var s = document.createElement('script');
+      s.src = src;
+      s.type = "text/javascript";
+      // s.async = false;                                 // <-- this is important
+      document.getElementsByTagName('head')[0].appendChild(s);
+    }
+    loadScriptSync("{{asset "main/js/defaults.js"}}")
+  </script> 
+  <script src="{{asset "main/js/defaults.js"}}"></script>
   <script src="{{asset "main/js/jquery.min.js"}}"></script>
   <script src="{{asset "main/js/browser.min.js"}}"></script>
   <script src="{{asset "main/js/breakpoints.min.js"}}"></script>
   <script src="{{asset "main/js/slick.min.js"}}"></script>
   <script src="{{asset "main/js/cookie.js"}}"></script>
-  <script src="{{asset "main/js/defaults.js"}}"></script>
   <script src="{{asset "main/js/util.js"}}"></script>
   <script src="{{asset "main/js/main.js"}}"></script>
   <script>
