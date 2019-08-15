@@ -16,7 +16,9 @@ into the {body} of the default.hbs template --}}
           <h1><a href="{{url}}">{{title}}</a></h1>
           {{#if custom_excerpt}}<p>{{custom_excerpt}}</p>{{/if}}
         </header>
-        {{content words="42"}}
+        {{^if custom_excerpt}}
+          {{content words="42"}}
+        {{/if}}
       </div>
       {{#if feature_image}}
       <div class="image object">
