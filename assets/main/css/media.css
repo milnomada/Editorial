@@ -21,6 +21,12 @@
 	}
 }
 @media screen and (max-width: 1680px) {
+  .similar article {
+    width: calc(50% - 6em);
+  }
+  h1 {
+    font-size: 3em;
+  }
 	#main {
 	 	width: calc(75% - 24em);
 	}
