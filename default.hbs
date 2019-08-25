@@ -98,12 +98,19 @@
           dots: true
         }
       }, {
-        breakpoint: 400,
-        slidesToShow: 1,
-        settings: "unslick" // destroys slick
-      },{
+        breakpoint: 360,
+        settings: {
+          slidesToShow: 1,
+          infinite: false,
+          autoplay: false
+        }
+      }, {
         breakpoint: 320,
-        settings: "unslick" // destroys slick
+        settings: {
+          slidesToShow: 1,
+          infinite: false,
+          autoplay: false
+        }
       }]
     }); 
   </script>
