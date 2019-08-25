@@ -3,6 +3,9 @@
 		min-height: 28vh;
 		margin-bottom: 3.5em;
 	}
+  h1 {
+    font-size: 2.8em;
+  }
 	.posts article {
     width: calc(50% - 2em);
 	}
@@ -27,7 +30,7 @@
   h1 {
     font-size: 2.2em;
   }
-	#main {
+	#main {  
 	 	width: calc(75% - 24em);
 	}
 	.posts article {
@@ -176,10 +179,11 @@
 		display: none;
 	}
 	#menu ul.links {
-		margin-left: 6em;
+		margin-left: 4em;
 	}
 	#menu ul.links li:first-child{
 		display: block;
+    padding-left: 10px;
 	}
 	#menu ul.links li:nth-of-type(2) a {
 		border-left: none;
@@ -259,10 +263,11 @@
 		display: none;
 	}
 	#menu ul.links {
-		margin-left: 6em;
+		margin-left: 4em;
 	}
 	#menu ul.links li:first-child{
 		display: block;
+    padding-left: 10px;
 	}
 	#menu ul.links li:nth-of-type(2) a {
 		border-left: none;
