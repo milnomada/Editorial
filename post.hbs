@@ -5,16 +5,14 @@ into the {body} of the default.hbs template --}}
 {{#post}}
 {{!-- Everything inside the #post tags pulls data from the post --}}
 <section>
-
 	{{!-- Search results --}}
 	{{> search}}
-
 	<header class="main content">
 		<span class="date">{{date format="MMMM D, YYYY"}}</span>
 		<h1>{{title}}</h1>
 		{{!-- 
-				Load internal tags if present
-			--}}
+			Load internal tags if present
+		--}}
 		{{setvar 'original' 0 }}	
 		{{#foreach tags visibility="internal"}}
 			{{#if (compare name '#original')}}
@@ -90,27 +88,16 @@ into the {body} of the default.hbs template --}}
 				</div>
 			</div>
 		{{/if}}
-
-		
 		{{#if custom_excerpt}}
 			<p class="content">{{custom_excerpt}}</p>
 		{{/if}}
 	</header>
-
-	{{!-- 
-	{{#if feature_image}}
-	<div class="image main"><img src="{{img_url feature_image}}" alt="{{title}}" /></div>
-	{{/if}}
-	--}}
-
 	<div class="content">
 		{{content}}
-
 		{{!-- Similar posts 
 			Request similar posts only for the first tag found
 			So to minimize the requests done to build up this view.
 		--}}
-
 		<br>
 		<hr />
 		{{#get "posts" limit="4" filter="tags:[{{tags[*].slug}}]+id:-{{id}}" include="tags" as |similar|}}
@@ -128,16 +115,10 @@ into the {body} of the default.hbs template --}}
 		    </article>
 		    {{/foreach}}
 		  </section>
-			
 	  {{else}}
 	  <p>Few posts should appear here</p>
 	  {{/get}}
-	  
-
-  
-
-</div>
-
+  </div>
 	<footer class="post-footer">
 		{{#if (compare @root.original 1) }}
 		{{else}}
@@ -172,17 +153,7 @@ into the {body} of the default.hbs template --}}
 			{{subscribe_form placeholder="youremail@example.com"}}
 		</section>
 		{{/if}}
-		
 	</footer>
-
-	
-
-	{{!--
-	<section class="post-full-comments">
-		If you want to embed comments, this is a good place to do it!
-	</section>
-	--}}
-
 </section>
 {{/post}}
 
