@@ -22,7 +22,7 @@ into the {body} of the default.hbs template --}}
       </div>
       {{#if feature_image}}
       <div class="image object">
-        <img src="{{img_url feature_image}}" alt="{{title}}" />
+        <img src="{{img_url feature_image}}" alt="{{title}}" onerror="replaceMissing(this);"/>
       </div>
       <div class="overlay">
         <ul class="actions">
@@ -43,7 +43,7 @@ into the {body} of the default.hbs template --}}
           </div>
           {{#if feature_image}}
           <div class="image object">
-            <img src="{{img_url feature_image}}" alt="{{title}}" />
+            <img src="{{img_url feature_image}}" alt="{{title}}" onerror="replaceMissing(this);"/>
           </div>
           <ul class="actions">
             <li><a href="{{url}}" class="button big">Read More</a></li>
@@ -87,7 +87,7 @@ into the {body} of the default.hbs template --}}
           </div>
           {{#if feature_image}}
           <div class="image object">
-            <img src="{{img_url feature_image}}" alt="{{title}}" onerror="replaceMissing(this)"/>
+            <img src="{{img_url feature_image}}" alt="{{title}}" onerror="replaceMissing(this);"/>
           </div>
           <div class="overlay">
             <ul class="actions">
@@ -112,7 +112,7 @@ into the {body} of the default.hbs template --}}
           </div>
           {{#if feature_image}}
           <div class="image object">
-            <img src="{{img_url feature_image}}" alt="{{title}}" onerror="replaceMissing(this)" />
+            <img src="{{img_url feature_image}}" alt="{{title}}" onerror="replaceMissing(this);" />
           </div>
           <div class="overlay">
             <ul class="actions">
@@ -132,7 +132,7 @@ into the {body} of the default.hbs template --}}
     {{#foreach posts}}
       <article class="">
         {{#if feature_image}}
-        <a href="{{url}}" class="image fit"><img src="{{img_url feature_image}}" alt="{{title}}" onerror="replaceMissing(this)"/></a>
+        <a href="{{url}}" class="image fit"><img src="{{img_url feature_image}}" alt="{{title}}" onerror="replaceMissing(this);"/></a>
         {{/if}}
         <div class="kc" >
           <span class="date">{{date}}</span>
