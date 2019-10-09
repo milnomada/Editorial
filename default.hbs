@@ -18,7 +18,23 @@
   <link rel="stylesheet" type="text/css" href="{{asset "main/css/slick-theme.css"}}" />
   <link rel="stylesheet" type="text/css" href="{{asset "main/css/news.css"}}" />
   <link rel="stylesheet" type="text/css" href="{{asset "main/css/media.css"}}" />
-
+  <script type="text/javascript">
+    function replaceMissing(e){
+      // on error images
+      var imgArr = [
+        "/assets/images/philosophy.jpg",
+        "/assets/images/awareness.jpg",
+        "/assets/images/space.jpg"
+      ];
+      // $(window).on("load", function () {
+      // $("img").on("error", function(){
+        console.log("error img", e);
+        var pos = Math.floor(Math.random() * (imgArr.length));
+        // $(this).attr('src', imgArr[pos]);
+        e.src = imgArr[pos];
+      // });
+    }
+  </script>
 
   {{!-- This tag outputs SEO meta+structured data and other important settings --}}
   {{ghost_head}}
@@ -54,7 +70,8 @@
       // s.async = false;                                 // <-- this is important
       document.getElementsByTagName('head')[0].appendChild(s);
     }
-    loadScriptSync("{{asset "main/js/defaults.js"}}")
+    // loadScriptSync("{{asset "main/js/defaults.js"}}")
+    // loadScriptSync("{{asset "main/js/jquery.min.js"}}")
   </script> 
   <script src="{{asset "main/js/defaults.js"}}"></script>
   <script src="{{asset "main/js/jquery.min.js"}}"></script>
@@ -113,6 +130,18 @@
         }
       }]
     }); 
+    $(".main img").each(function(){
+      console.log("load img", $(this).parent().width(), $(this).parent().height(), $(this).attr("src"));
+
+      if($(this).parent().width() > $(this).parent().height() + $(this).parent().height() * 0.3) {
+        console.log("update")
+        // $(this).width($(this).parent().width())
+        // $(this).height("auto")
+      }
+      // var pos = Math.floor(Math.random() * (imgArr.length));
+      // $(this).attr('src', imgArr[pos]);
+      // e.src = imgArr[pos];
+    });
   </script>
 
   {{!-- Ghost outputs important scripts & data with the {ghost_foot} tag

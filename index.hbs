@@ -34,7 +34,7 @@ into the {body} of the default.hbs template --}}
     <div class="flex-wrapper">
     {{#get "posts" limit="2" filter="tag:hash-most-visited" include="tags" as |feat|}}
       {{#foreach feat}}
-        <article id="feat">
+        <article id="feat" class="main">
           <div class="content bbg">
             <header>
               <h2><a href="{{url}}">{{title}}</a></h2>
@@ -87,7 +87,7 @@ into the {body} of the default.hbs template --}}
           </div>
           {{#if feature_image}}
           <div class="image object">
-            <img src="{{img_url feature_image}}" alt="{{title}}" />
+            <img src="{{img_url feature_image}}" alt="{{title}}" onerror="replaceMissing(this)"/>
           </div>
           <div class="overlay">
             <ul class="actions">
@@ -112,7 +112,7 @@ into the {body} of the default.hbs template --}}
           </div>
           {{#if feature_image}}
           <div class="image object">
-            <img src="{{img_url feature_image}}" alt="{{title}}" />
+            <img src="{{img_url feature_image}}" alt="{{title}}" onerror="replaceMissing(this)" />
           </div>
           <div class="overlay">
             <ul class="actions">
@@ -132,7 +132,7 @@ into the {body} of the default.hbs template --}}
     {{#foreach posts}}
       <article class="">
         {{#if feature_image}}
-        <a href="{{url}}" class="image fit"><img src="{{img_url feature_image}}" alt="{{title}}" /></a>
+        <a href="{{url}}" class="image fit"><img src="{{img_url feature_image}}" alt="{{title}}" onerror="replaceMissing(this)"/></a>
         {{/if}}
         <div class="kc" >
           <span class="date">{{date}}</span>
