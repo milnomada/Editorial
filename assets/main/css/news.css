@@ -212,7 +212,6 @@ h2.mid {
   height: 500px;
 }
 #featured img {
-  height: 500px;
 }
 #featured .overlay {
   min-height: 500px;
@@ -243,7 +242,7 @@ ul.actions {
   position: relative;
   margin: 0 0 0.25em 0;
   line-height: 1.33em;
-  height: 4em;
+  height: 2.8em;
   overflow-y: hidden;
   display: block;
 }
@@ -274,8 +273,9 @@ ul.actions {
   min-height: 225px;
 }
 #feat img, #featured img {
-  margin: 0 auto;
   height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 .flex-wrapper {
   display: inline-block;
