@@ -393,15 +393,33 @@ ul.actions {
   display: none;
 }
 .box-tag {
-  margin-left: 0.3em;
-  margin-top: 0.7em;
+::placeholder {
+    color: #9fa3a6 !important;
+    opacity: 1.0;
+}
+element {
+}
+.slide .box-tag {
+    overflow-wrap: break-word;
+    max-width: 32%;
+    overflow-x: hidden;
+    word-break: break-all;
+}
+.slide * {
+    display: inline-block;
+    float: left;
+}
+.box-tag {
+  margin-left: 0.1em;
+  margin-top: 6%;
   display: inline-block;
-  padding: 0.3em 0.6em;
+  padding: 0.1em .3em .1em .35em;
   background-color: #777;
   color: #fff;
-  height: 2.2em;
+  height: 2em;
   border-bottom: none;
-  font-size: .9em;
+  font-size: .7em;
+  border-radius: 3px;
 }
 
 /*------------------------------ 
@@ -578,7 +596,7 @@ article .actions {}
 }
 .slide .box-tag {
   overflow-wrap: break-word;
-  max-width: 30%;
+  max-width: 32%;
   overflow-x: hidden;
   word-break: break-all;
 }
