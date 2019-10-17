@@ -139,9 +139,11 @@ h2.mid {
   width: 12%;
 }
 #top .live-box span {
-  font-family: "Roboto Slab",serif;
+  font-family: "Roboto Slab", serif;
   font-size: 1em;
   vertical-align: -webkit-baseline-middle;
+  line-height: -moz-block-height;
+  line-height: normal;
   width: 100%;
   text-align: center;
   display: inline-block;
@@ -396,7 +398,7 @@ ul.actions {
   margin-left: 0.1em;
   margin-top: 1.15em;
   display: inline-block;
-  padding: 1em .3em .3em .35em;
+  padding: .15em .3em .3em .35em;
   background-color: #777;
   color: #fff;
   height: 2em;
