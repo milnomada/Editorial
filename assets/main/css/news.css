@@ -393,33 +393,15 @@ ul.actions {
   display: none;
 }
 .box-tag {
-::placeholder {
-    color: #9fa3a6 !important;
-    opacity: 1.0;
-}
-element {
-}
-.slide .box-tag {
-    overflow-wrap: break-word;
-    max-width: 32%;
-    overflow-x: hidden;
-    word-break: break-all;
-}
-.slide * {
-    display: inline-block;
-    float: left;
-}
-.box-tag {
   margin-left: 0.1em;
-  margin-top: 6%;
+  margin-top: 0.7em;
   display: inline-block;
-  padding: 0.1em .3em .1em .35em;
+  padding: .1em .3em .1em .35em;
   background-color: #777;
   color: #fff;
-  height: 2em;
+  height: 2.2em;
   border-bottom: none;
   font-size: .7em;
-  border-radius: 3px;
 }
 
 /*------------------------------ 
