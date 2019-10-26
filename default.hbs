@@ -132,16 +132,15 @@
     }); 
     $(".main img").each(function(){
       console.log("load img", $(this).parent().width(), $(this).parent().height(), $(this).attr("src"));
-
       if($(this).parent().width() > $(this).parent().height() + $(this).parent().height() * 0.3) {
         console.log("update")
-        // $(this).width($(this).parent().width())
-        // $(this).height("auto")
       }
-      // var pos = Math.floor(Math.random() * (imgArr.length));
-      // $(this).attr('src', imgArr[pos]);
-      // e.src = imgArr[pos];
     });
+    if(typeof(__subscribe) === "boolean") {
+      var __ga_sbs = new GaSuite(),
+        visit = {category: 'interaction', action: 'visit', label: 'subscribe', value: 1};
+      __ga_sbs.sendEvent(visit.category, visit.action, visit.label, visit.value);
+    }
   </script>
 
   {{!-- Ghost outputs important scripts & data with the {ghost_foot} tag
