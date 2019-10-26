@@ -403,6 +403,7 @@ ul.actions {
   border-bottom: none;
   font-size: .7em;
   border-radius: 3px;
+  height: 2.2em; /* this is to avoid height span on long tag names */
 }
 #sidebar .box-tag {
   font-size: 1em;
@@ -626,6 +627,55 @@ article .actions {}
   font-size: 0.9em;
 }
 
+/*------------------------------------
+ mailchimp form
+ -------------------------------------*/
+
+#main #mc_embed_signup .mc-field-group.input-group ul li{
+  margin-bottom: 5px;
+  width: 50%;
+  display: block;
+ }
+ #main #mc_embed_signup .mc-field-group.input-group ul {
+  height: 310px;
+  display: flex;
+  flex-flow: wrap;
+  padding: 10px 0;
+ }
+#main #mc_embed_signup .mc-field-group {
+  padding-left: 20px;
+}
+#main #mc_embed_signup .mc-field-group:not(.input-group) {
+  width: 50%;
+  padding-bottom: 10px;
+}
+#main #mc_embed_signup p {
+  margin: 0 0  1em 0;
+}
+#main #mc_embed_signup .mc-field-group.input-group {
+  padding-top: 20px;
+}
+#main #mc_embed_signup .mc-field-group:not(.input-group) input {
+  height: auto;
+  padding: 5px 0;
+}
+#main #mc_embed_signup .mc-field-group:not(.input-group) input::placeholder {
+  font-family: "Roboto Slab", serif;
+  font-size: 1em;
+  color: #111;
+  opacity: 1; /* Firefox */
+}
+#main #mc_embed_signup .mc-field-group:not(.input-group) input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color: #111;
+}
+#main #mc_embed_signup h2 {
+  font-size: 3em;
+  text-transform: capitalize;
+  margin: 0 0 15px 0;
+}
+#main #mc_embed_signup form {
+  padding: 0;
+}
 /*------------------------------------
   search feature
 --------------------------------------*/
