@@ -36,7 +36,7 @@
     s_handler='img.share',
     view_handler='.settings .icons a',
     top='#top',
-    myheader='#top .header',
+    myheader='.k-nav .icons',
     imgRefresh='.new-image',
     defaultImage = defaults.defaultBgImage,
     defaultImageSrv
@@ -70,13 +70,14 @@
   var imgActions = {
     start: '<ul class="icons">',
     buttons: { 
-      'refresh': '<li><i class="fa fa-refresh new-image"></i></li>',
+      'refresh': '<li><a rel="noopener" class="icon"><i class="fa fa-refresh new-image"></i></a></li>',
       'link': '<li><a target="_blank"><i class="fa fa-external-link"></i></a></li>'
     },
     end: '</ul>',
 
     get: function(buttonOpts) {
-      var s = this.start
+      // only li items now
+      var s = "" // this.start
 
       for(var i in buttonOpts){
         switch(buttonOpts[i]){ 
@@ -84,11 +85,13 @@
             s += this.buttons[buttonOpts[i]]
           } break;
           case 'link': {
+            s += this.start
             s += this.buttons[buttonOpts[i]]
+            s += this.end
           } break;
         }
       }
-      s += this.end;
+      // s += this.end;
       return s;
     } 
   };
@@ -123,12 +126,10 @@
       this.dur = { expires: 365 };
       this.name = name
     }
-
     get(){
       var c=Cookies.get(this.name);
       return c ? JSON.parse(c) : null
     }
-
     save(){
       Cookies.set(this.name, JSON.stringify(this.c), this.dur);
     }

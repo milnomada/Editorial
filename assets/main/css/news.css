@@ -18,10 +18,10 @@ body {
   background-position: 0 0;*/
 }
 #menu .icon:hover {
-  background-image: url(/assets/images/taf_64_2.png);
+  /* background-image: url(/assets/images/taf_64_2.png);
   background-repeat:  no-repeat;
   background-size: 100% 100%;
-  background-position: 0 0;
+  background-position: 0 0; */
 }
 p.soon {
   background-color: #eee;
@@ -86,6 +86,10 @@ h2.mid {
   bottom: 0;
   margin-right: 10px;
   color: #fff;
+}
+
+.k-nav .icons li a {
+  cursor: pointer;
 }
 
 /* Site header */
