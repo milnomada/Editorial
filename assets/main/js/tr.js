@@ -9,7 +9,12 @@ var __ga, gaTimeout = 1050;
 function GaSuite() {
   this.active = false
   if('ga' in window) {
-    this.__tr = ga.getAll()[0];
+    try {
+      this.__tr = ga.getAll()[0];
+    } catch(TypeError e) {
+      this.__tr = undefined
+      console.warn(e)
+    }
     if(!this.__tr) {
       this.__tr = {
         send: function(){ /* fake send */ }
