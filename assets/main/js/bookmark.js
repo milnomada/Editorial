@@ -70,7 +70,7 @@
   var imgActions = {
     start: '<ul class="icons">',
     buttons: { 
-      'refresh': '<li><a rel="noopener" class="icon"><i class="fa fa-refresh new-image"></i></a></li>',
+      'refresh': '<li><a rel="noopener" title="Refresh header image" class="icon"><i class="fa fa-refresh new-image"></i></a></li>',
       'link': '<li><a target="_blank"><i class="fa fa-external-link"></i></a></li>'
     },
     end: '</ul>',
