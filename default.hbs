@@ -95,41 +95,6 @@
   <script src="{{asset "main/js/gs.js"}}"></script>
   <script src="{{asset "main/js/infinite.js"}}"></script>
   <script type="text/javascript">
-    $(".slider").slick({
-      infinite: true,
-      lazyLoad: 'ondemand',
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 2000,
-      responsive: [{
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          infinite: true
-        }
-      }, {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          dots: true
-        }
-      }, {
-        breakpoint: 360,
-        settings: {
-          slidesToShow: 1,
-          infinite: false,
-          autoplay: false
-        }
-      }, {
-        breakpoint: 320,
-        settings: {
-          slidesToShow: 1,
-          infinite: false,
-          autoplay: false
-        }
-      }]
-    }); 
     $(".main img").each(function(){
       console.log("load img", $(this).parent().width(), $(this).parent().height(), $(this).attr("src"));
       if($(this).parent().width() > $(this).parent().height() + $(this).parent().height() * 0.3) {

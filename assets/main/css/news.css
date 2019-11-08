@@ -549,6 +549,7 @@ article .actions {}
 }
 .slider {
   padding-left: 20px;
+  display: none;
 }
 .slick-slide {
  text-align: center;

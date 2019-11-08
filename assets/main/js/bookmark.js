@@ -27,8 +27,6 @@
   + Add default events
  */
 
-
-
 (function($) {
   var 
     wlh=defaults.currentAddress,
@@ -386,13 +384,52 @@
     var str=window.location.href.substring( window.location.href.indexOf('#')+1 )
     var elem= $( "*[name='"+str.toLowerCase()+"']" )[0];
     if(!elem)
-    return
+      return
     $('html, body').animate({
       scrollTop: $(elem).offset().top
     }, { duration:1000, easing:'linear'}); 
   }
 
-  
-  
+  // show slider on init
+  // avoids flickering effects on page load
+  $(".slider").on('init', function(event, slick){
+    $(".slider").show()
+  });
+
+  $(".slider").slick({
+    infinite: true,
+    lazyLoad: 'ondemand',
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    responsive: [{
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        infinite: true
+      }
+    }, {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        dots: true
+      }
+    }, {
+      breakpoint: 360,
+      settings: {
+        slidesToShow: 1,
+        infinite: false,
+        autoplay: false
+      }
+    }, {
+      breakpoint: 320,
+      settings: {
+        slidesToShow: 1,
+        infinite: false,
+        autoplay: false
+      }
+    }]
+  });
 
 })(jQuery);
