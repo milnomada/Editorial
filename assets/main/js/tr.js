@@ -11,9 +11,9 @@ function GaSuite() {
   if('ga' in window) {
     try {
       this.__tr = ga.getAll()[0];
-    } catch(TypeError e) {
+    } catch(err) {
       this.__tr = undefined
-      console.warn(e)
+      console.warn(err)
     }
     if(!this.__tr) {
       this.__tr = {
