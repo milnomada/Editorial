@@ -180,7 +180,7 @@
 
   class ViewC extends cookieMonster {
 
-    check(){
+    check() {
       var cookie=super.get();
       if(!cookie){
         this.c={ 'status':'grid' }
@@ -193,7 +193,7 @@
       }
     }
 
-    save(status){
+    save(status) {
       this.c={ 'status':status }
       super.save()
       // console.log(this.c)
